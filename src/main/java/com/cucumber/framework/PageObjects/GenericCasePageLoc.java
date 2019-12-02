@@ -39,4 +39,10 @@ public interface GenericCasePageLoc {
     String xpath_type2_cgc_dd="//select[@id='49313c1e']";
     String xpath_updatestatus_cgc_dd="//select[@id='fa702c8a']";
     String xpath_remarksinupdatestatus_cgc_textbox="//textarea[@id='bdb9cbe6' and @data-test-id='20190822121749096547629']";
+    
+    //CFS and CP determination xpaths
+    String xpath_custno_element="//tbody/tr[@id='$PpySearchResults$ppxResults$l1']/td[1]";
+    String xpath_cfs_dd="//select[@id='37faae9b']";
+    String xpath_cp_dd="//select[@id='37d826bb']";
+    
 }

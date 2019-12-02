@@ -36,6 +36,11 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void verifyResult(String expectedresult) throws Exception {
+		String acustno=xpath_Genericmethod_getElementText(xpath_custno_element);
+		System.out.println(acustno);
+		if(expectedresult.equalsIgnoreCase(acustno)) {
+			System.out.println("Both are same");
+		}
 		boolean b=xpath_Genericmethod_VerifyTextEquals("//tbody/tr[@id='$PpySearchResults$ppxResults$l1']/td/div/span[text()='"+expectedresult+"']", expectedresult);
 		Assert.assertTrue(b, "Expected result :"+expectedresult+"is not same as actual result");
 	}
@@ -186,6 +191,24 @@ try {
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_updatestatus_cgc_dd, statusvalue);
 		xpath_GenericMethod_Sendkeys(xpath_remarksinupdatestatus_cgc_textbox, statusvalue);
 
+	}
+	
+	public void verifyCFSAndCP(String cfs, String cp) throws Exception {
+		waitFor(3);
+		String actualcfs=xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cfs_dd);
+		System.out.println(actualcfs);
+		waitFor(3);
+		String actualcp=xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cp_dd);
+		System.out.println(actualcp);
+		/*
+		 * if((cfs.equalsIgnoreCase(actualcfs))&&(cp.equalsIgnoreCase(actualcp))){
+		 * System.out.println("Expected CFS :"+" "+cfs+"Actual CFS :"+" "+actualcfs+" "
+		 * +"are same");
+		 * System.out.println("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
+		 * +"are same"); }else { System.out.println("CFS or CP data is invalid"); }
+		 */
+		Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+		Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 	}
 	
 }

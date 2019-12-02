@@ -176,5 +176,9 @@ public class GenericCaseTest {
 		genericcasepage.selectUpdateStatusValueFromCGCDropdown(statusvalue);
 	}
 
+	@Given("Verify the CFS and CP using {string} and {string} in generic case")
+	public void verify_the_CFS_and_CP_using_and_in_generic_case(String cfs, String cp) throws Exception {
+	  genericcasepage.verifyCFSAndCP(cfs, cp);
+	}
 
 }
