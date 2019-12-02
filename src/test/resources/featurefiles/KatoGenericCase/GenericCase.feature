@@ -124,7 +124,7 @@ Feature: Generic Case Creation
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC4
-  Scenario Outline: Create a Generic case manually from start search customer using Start research.
+  Scenario Outline: Determine the CFS and CP for Generic case created manually from start search customer using Start research.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
     And I enter password as "<Password>"
