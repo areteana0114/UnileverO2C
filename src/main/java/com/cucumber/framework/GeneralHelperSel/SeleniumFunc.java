@@ -1369,12 +1369,11 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 		try {
 			if (driver.findElement(By.xpath(xpath)).isDisplayed()) {
 				WebElement ele = driver.findElement(By.xpath(xpath));
-				/*
-				 * Actions move = new Actions(driver); move.moveToElement(ele).clickAndHold();
-				 * move.moveByOffset(125,0); move.release(); move.perform();
-				 */
-				scrollIntoViewAndClick(ele);
-		        //scrollDownVertically();
+				
+				  Actions move = new Actions(driver); move.moveToElement(ele).clickAndHold();
+				  move.moveByOffset(125,0); move.release(); move.perform();
+				 
+			
 				 waitFor(1);
 			}
 
@@ -1389,12 +1388,11 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 				}
 				WebElement ele1 = driver.findElement(By.xpath(xpath));
 				waitForElement(ele1, 1);
-				/*
-				 * Actions move = new Actions(driver); move.moveToElement(ele1).clickAndHold();
-				 * move.moveByOffset(125,0); move.release(); move.perform();
-				 */
-				scrollIntoViewAndClick(ele1);
-				//scrollDownVertically();
+				
+				  Actions move = new Actions(driver); move.moveToElement(ele1).clickAndHold();
+				  move.moveByOffset(125,0); move.release(); move.perform();
+				 
+				
 				 waitFor(1);
 				// System.out.println("using getattribute Id");
 				// driver.switchTo().defaultContent();
@@ -1402,12 +1400,11 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 				System.out.println("switching to default content");
 				driver.switchTo().defaultContent();
 				WebElement ele = driver.findElement(By.xpath(xpath));
-				/*
-				 * Actions move = new Actions(driver); move.moveToElement(ele).clickAndHold();
-				 * move.moveByOffset(125,0); move.release(); move.perform();
-				 */
-				scrollIntoViewAndClick(ele);
-				//scrollDownVertically();
+				
+				  Actions move = new Actions(driver); move.moveToElement(ele).clickAndHold();
+				  move.moveByOffset(125,0); move.release(); move.perform();
+				 
+			
 				 waitFor(1);
 			}
 		}

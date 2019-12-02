@@ -113,11 +113,13 @@ public class GenericCaseTest {
 	public void click_on_UpdateStatus_link() throws Exception {
 		genericcasepage.clickOnUpdateStatusLink();
 	}
-	@Then("Select status as {string}")
-	public void select_status_as(String statusvalue) throws Exception {
-		genericcasepage.selectUpdateStatusValueFromDropdown(statusvalue);
-		
-	}
+	
+	  @Then("Select status as {string}") public void select_status_as(String statusvalue) throws Exception {
+	  genericcasepage.selectUpdateStatusValueFromDropdown(statusvalue);
+	  
+	  }
+	 
+	
 
 	@Then("Click on Submit button in update status pop up")
 	public void click_on_Submit_button_in_update_status_pop_up() throws Exception {
@@ -155,11 +157,24 @@ public class GenericCaseTest {
 
 	@When("Click on start research button in Advance search screen")
 	public void click_on_start_research_button_in_Advance_search_screen() throws Exception {
-		genericcasepage.clickOnAdvacneStartResearch();
-		System.out.println("Clicked on Start Research");
+		genericcasepage.clickOnAdvanceStartResearch();
+		System.out.println("Clicked on Start Research button");
+	}
+
+	@When("Click on create generic case button in Advance search screen")
+	public void click_on_create_generic_case_button_in_Advance_search_screen() throws Exception {
+		genericcasepage.clickOnAdvanceCreateGenericCaseButton();
+		System.out.println("Clicked on create generic case button");
+	}
+	
+	@Given("Select values from {string} and {string} dropdown in create generic case")
+	public void select_values_from_and_dropdown_in_create_generic_case(String typeonevalue, String typetwovalue) {
+		genericcasepage.selectTypeOneAndTypetwoValuesInCreateGenericCase(typeonevalue, typetwovalue);
+	}
+	@Given("Select status as {string} in the Create Generic Case\"")
+	public void select_status_as_in_the_Create_Generic_Case(String statusvalue) throws Exception {
+		genericcasepage.selectUpdateStatusValueFromCGCDropdown(statusvalue);
 	}
 
 
-	
-	
 }

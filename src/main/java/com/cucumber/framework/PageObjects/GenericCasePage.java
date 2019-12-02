@@ -83,7 +83,15 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void clickOnSaveButton() throws Exception {
+		
 		xpath_GenericMethod_Click(xpath_save_btn);
+		waitFor(2);
+		try {
+		driver.switchTo().alert().accept();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 	
 	public void verifyGenericCaseCreated() throws Exception {
@@ -147,12 +155,37 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		//eles.get(0).click();
 		waitFor(2);
 		//xpath_GenericMethod_Click(xpath_advancetwodots_button);
+		driver.switchTo().defaultContent();
+	}
+	
+	public void clickOnAdvanceStartResearch() throws Exception {
+		waitFor(3);
+		xpath_GenericMethod_Click(xpath_advancestartresearch_btn);
 		
 	}
 	
-	public void clickOnAdvacneStartResearch() throws Exception {
-		waitFor(3);
-		 xpath_GenericMethod_ActionClass(xpath_advancestartresearch_btn);
+	public void clickOnAdvanceCreateGenericCaseButton() throws Exception {
 		
+		xpath_GenericMethod_Click(xpath_advancecreategenericcase_btn);
+		waitFor(2);
+		}
+	
+	public void selectTypeOneAndTypetwoValuesInCreateGenericCase(String typeone,String typetwo) {
+try {
+	xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
+}catch(Exception e) {
+	System.out.println(e.getMessage());
+}
+	waitFor(3);
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type1_cgc_dd, typeone);
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type2_cgc_dd, typetwo);
+
 	}
+	
+	public void selectUpdateStatusValueFromCGCDropdown(String statusvalue) throws Exception {
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_updatestatus_cgc_dd, statusvalue);
+		xpath_GenericMethod_Sendkeys(xpath_remarksinupdatestatus_cgc_textbox, statusvalue);
+
+	}
+	
 }
