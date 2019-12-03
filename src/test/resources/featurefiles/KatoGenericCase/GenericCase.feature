@@ -29,19 +29,20 @@ Feature: Generic Case Creation
     And Select status as "<UpdateStatus>"
     And Click on Submit button in update status pop up
     And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
     And Click on Follow button
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
 
     Examples: 
-      | Username                             | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                           | SalesOrg                  | DistChannel           | UpdateStatus       |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Pending-Response   |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
+      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                           | SalesOrg                  | DistChannel | UpdateStatus     |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
+      #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH      | Pending-Response |
 
+  #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC2
   Scenario Outline: Create a Generic case manually from Advance search customer using Start Research.
@@ -71,19 +72,20 @@ Feature: Generic Case Creation
     And Select status as "<UpdateStatus>"
     And Click on Submit button in update status pop up
     And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
     And Click on Follow button
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
 
     Examples: 
-      | Username                             | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                           | SalesOrg                  | DistChannel           | UpdateStatus       |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Pending-Response   |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
+      | Username                             | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus       |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
+      #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
+      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
 
+  #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Pending-Response   |
+  #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC3
   Scenario Outline: Create a Generic case manually from Advance search customer using Create Generic Case.
@@ -109,19 +111,20 @@ Feature: Generic Case Creation
     Given Select status as "<UpdateStatus>" in the Create Generic Case"
     And Click on Submit button in update status pop up
     And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
     And Click on Follow button
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
 
     Examples: 
-      | Username                             | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                           | SalesOrg                  | DistChannel           | UpdateStatus       |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Pending-Response   |
-      | Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
+      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                           | SalesOrg                  | DistChannel | UpdateStatus       |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Resolved-Completed |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH      | Resolved-Withdrawn |
 
+  #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
+  #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Pending-Response   |
+  #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC4
   Scenario Outline: Determine the CFS and CP for Generic case created manually from start search customer using Start research.
@@ -133,7 +136,7 @@ Feature: Generic Case Creation
     And Select "<Value>" from search results dropdown
     And Enter "<CustomerNumber>" into search field
     When click on Search icon
-    Then search results corresponding to "<CustomerNumber>" should be displayed
+    #Then search results corresponding to "<CustomerNumber>" should be displayed
     When Click on three dots button
     And Click on start research button
     And Hover On Add Task button Pops
@@ -143,7 +146,7 @@ Feature: Generic Case Creation
     And Select values from "<type1>" and "<type2>" dropdown
     And Click on Parties and Organization tab
     And Select values from "<SalesOrg>" and "<DistChannel>"
-    And Verify the CFS and CP using "<CFS>" and "<CP>" in generic case
+    And Verify the CFS and CP using "<CFS>" and "<CP>" and "<CFSFlag>" and "<CPFlag>" in generic case
     And Click on Save button
     Then Verify the Generic case is created
     And Click on Edit button
@@ -152,12 +155,15 @@ Feature: Generic Case Creation
     And Select status as "<UpdateStatus>"
     And Click on Submit button in update status pop up
     And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
     And Click on Follow button
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
 
     Examples: 
-      | Username                             | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | Division           | CFS                   | CP                    | UpdateStatus       |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar            | Resolved-Completed |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 22-OOH                | 10-Common Division | manikumar kosireddi   | Abhinash Kotikalapudi | Resolved-Completed |
+      | Username                             | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | Division           | CFS                   | CP | UpdateStatus       | CFSFlag | CPFlag |
+      #   | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar            | Resolved-Completed | Yes     | Yes    |
+      #   | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 22-OOH                | 10-Common Division | manikumar kosireddi   | Abhinash Kotikalapudi | Resolved-Completed | No      | No     |
+      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0001001769 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi |    | New                | No      | No     |
+      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0001001769 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 21-Foodsolutions      | 10-Common Division | Sofie Dummy           |    | Resolved-Completed |         |        |

@@ -31,8 +31,8 @@ public interface GenericCasePageLoc {
     String xpath_advancecustomernumber_textbox="//input[@id='45bb12ca' and @title='Search case ID']";
     String xpath_advancecustomersearch_button="//button[@title='Search']";
     String xpath_advancetwodots_button="(//*[contains(@id,'$PD_CustomerSearch')]/td[13])[1]";
-    String xpath_advancestartresearch_btn="//ul[@id='pyNavigation1574865797805']/li[2]/a";
-    String xpath_advancecreategenericcase_btn="//ul[@id='pyNavigation1574865797805']/li[1]/a";
+    String xpath_advancestartresearch_btn="//ul[starts-with(@id,'pyNavigation')]/li[2]/a";
+    String xpath_advancecreategenericcase_btn="//ul[starts-with(@id,'pyNavigation')]/li[1]/a";
     //Advance search create generic case xpaths
     String xpath_casedesc_cgc_textbox="//input[@id='28b55c1b']";
     String xpath_type1_cgc_dd="//select[@id='0960fcdd']";
@@ -44,5 +44,8 @@ public interface GenericCasePageLoc {
     String xpath_custno_element="//tbody/tr[@id='$PpySearchResults$ppxResults$l1']/td[1]";
     String xpath_cfs_dd="//select[@id='37faae9b']";
     String xpath_cp_dd="//select[@id='37d826bb']";
+    String xpath_cfs_default_NotAvailable="//div[text()='Customer does not have CFS by default  please contact the CFS administrator']";
+    String xpath_no_cfs_assigned="//div[text()='Customer does not have CFS  assigned to  please contact the CFS administrator']";
+    
     
 }

@@ -96,7 +96,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+		waitFor(2);
 	}
 	
 	public void verifyGenericCaseCreated() throws Exception {
@@ -193,13 +193,26 @@ try {
 
 	}
 	
-	public void verifyCFSAndCP(String cfs, String cp) throws Exception {
-		waitFor(3);
-		String actualcfs=xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cfs_dd);
-		System.out.println(actualcfs);
-		waitFor(3);
-		String actualcp=xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cp_dd);
-		System.out.println(actualcp);
+	public void verifyCFSAndCP(String cfs, String cp, String cfsflag, String cpflag) throws Exception {
+		String actualcfs;
+		String actualcp;	
+		try {
+		waitFor(2);
+		actualcfs = xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cfs_dd);
+		System.out.println("Actual CFS is :"+actualcfs);
+		waitFor(1);
+		}catch(Exception e) {
+			actualcfs="";
+		}
+		
+		try {
+			waitFor(2);
+		    actualcp = xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cp_dd);
+		    System.out.println("Actual CP is :"+actualcp+".");
+		    waitFor(1);
+		}catch(Exception e) {
+			actualcp="";
+		}
 		/*
 		 * if((cfs.equalsIgnoreCase(actualcfs))&&(cp.equalsIgnoreCase(actualcp))){
 		 * System.out.println("Expected CFS :"+" "+cfs+"Actual CFS :"+" "+actualcfs+" "
@@ -207,8 +220,55 @@ try {
 		 * System.out.println("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
 		 * +"are same"); }else { System.out.println("CFS or CP data is invalid"); }
 		 */
-		Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
-		Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+		if ((cfsflag.equalsIgnoreCase("Yes") && (cpflag.equalsIgnoreCase("Yes")))) {
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
+					"Element is present, but expected is element should not be present");
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
+					"Element is present, but expected is element should not be present");
+			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+		} else if ((cfsflag.equalsIgnoreCase("Yes") && (cpflag.equalsIgnoreCase("No")))) {
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
+					"Element is present, but expected is element should not be present");
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
+					"Element is present, but expected is element should not be present");
+			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+		} else if ((cfsflag.equalsIgnoreCase("No") && (cpflag.equalsIgnoreCase("Yes")))) {
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
+					"Element is present, but expected is element should not be present");
+			Assert.assertTrue(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
+					"Element is not present, but expected is element should be present");
+			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+		} else if ((cfsflag.equalsIgnoreCase("No") && (cpflag.equalsIgnoreCase("No")))) {
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
+					"Element is present, but expected is element should not be present");
+			Assert.assertTrue(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
+					"Element is not present, but expected is element should be present");
+			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+		}else {
+			System.out.println("No CFS Assigned to this customer, so assigning organization default CFS");
+			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
+					"Element is present, but expected is element should not be present");
+			Assert.assertTrue(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
+					"Element is not present, but expected is element should be present");
+			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
+			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
+			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+		}
+
 	}
 	
+	public void verifyUpdatedCaseStatus(String expectedupdatedcasestatus) throws Exception {
+		String updatedstatusxpath="//a[text()='  "+expectedupdatedcasestatus+"  ']";
+		boolean casestatus=xpath_Genericmethod_VerifyTextEquals(updatedstatusxpath, expectedupdatedcasestatus);
+		Assert.assertTrue(casestatus,"Status of the case is not equal");
+		
+	}
 }
