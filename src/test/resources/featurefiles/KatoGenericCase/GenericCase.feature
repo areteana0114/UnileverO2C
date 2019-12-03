@@ -136,7 +136,7 @@ Feature: Generic Case Creation
     And Select "<Value>" from search results dropdown
     And Enter "<CustomerNumber>" into search field
     When click on Search icon
-    #Then search results corresponding to "<CustomerNumber>" should be displayed
+    Then search results corresponding to "<CustomerNumber>" should be displayed
     When Click on three dots button
     And Click on start research button
     And Hover On Add Task button Pops
