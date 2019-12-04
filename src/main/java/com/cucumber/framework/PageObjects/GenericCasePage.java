@@ -271,4 +271,47 @@ try {
 		Assert.assertTrue(casestatus,"Status of the case is not equal");
 		
 	}
+	
+	public void clickOnsendMailLink() throws Exception {
+		xpath_GenericMethod_Click(xpath_sendmail_link);
+	}
+	
+	public void clickOnContactPersonBtn() throws Exception {
+		xpath_GenericMethod_Click(xpath_selectcp_btn);
+	}
+	
+	public void clickOnContactPersonChkbox() throws Exception {
+		Assert.assertTrue(xpath_Genericmethod_verifyElementPresent(xpath_selectcp_chkbox), "Element checkbox for CP is not present");
+		xpath_GenericMethod_Click(xpath_selectcp_chkbox);
+	}
+	
+	public void clickOnContactPersonSubmitBtn() throws Exception {
+		xpath_GenericMethod_Click(xpath_cp_submit_btn);
+	}
+	
+	public void clickOnPurposeOfEmailBtn(String purposeofemail) throws Exception {
+		if(purposeofemail.equalsIgnoreCase("Information Only")) {
+		xpath_GenericMethod_Click("//label[contains(@for,'"+purposeofemail+"')]");
+		}else if(purposeofemail.equalsIgnoreCase("Pending Response")){
+		xpath_GenericMethod_Click("//label[contains(@for,'"+purposeofemail+"')]");
+		}else {
+			System.out.println("No purpose of email is present");
+		}
+	}
+	
+	public void selectEmailDestination(String emaildestination) throws Exception {
+		if(xpath_Genericmethod_verifyElementPresent(xpath_email_destination_dd)) {
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_email_destination_dd, emaildestination);
+		}else {
+			System.out.println("No Email Destination Field is available");
+		}
+	}
+	
+	public void clickOnSendEmailBtn() throws Exception {
+		xpath_GenericMethod_Click(xpath_sendemail_btn);
+	}
+	
+	
+	
+	
 }

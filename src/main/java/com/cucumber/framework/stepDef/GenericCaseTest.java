@@ -185,4 +185,46 @@ public class GenericCaseTest {
 	public void verify_the_updated_case_status_as_using_xpath(String expectedupdatestatus) throws Exception {
 		genericcasepage.verifyUpdatedCaseStatus(expectedupdatestatus);
 	}
+	
+	@Given("Click on SendMail link")
+	public void click_on_SendMail_link() throws Exception {
+		genericcasepage.clickOnsendMailLink();
+	}
+
+	@Given("Click on Contact Person button")
+	public void click_on_Contact_Person_button() throws Exception {
+		genericcasepage.clickOnContactPersonBtn();
+	}
+
+	@Given("Select Contact Person checkbox")
+	public void select_Contact_Person_checkbox() throws Exception {
+		genericcasepage.clickOnContactPersonChkbox();
+	}
+
+	@Given("Click on Contact Person Submit button")
+	public void click_on_Contact_Person_Submit_button() throws Exception {
+		genericcasepage.clickOnContactPersonSubmitBtn();
+	}
+
+	
+
+	@Given("Select purpose of email {string}")
+	public void select_purpose_of_email(String purposeofemail) throws Exception {
+		genericcasepage.clickOnPurposeOfEmailBtn(purposeofemail);
+	}
+	
+	@Given("Select email destination {string} from dropdown")
+	public void select_email_destination_from_dropdown(String emaildestination) throws Exception {
+		genericcasepage.selectEmailDestination(emaildestination);
+	}
+	@Given("Click on sendmail button")
+	public void click_on_sendmail_button() throws Exception {
+		genericcasepage.clickOnSendEmailBtn();
+	}
+
+
+	
+	
+	
+	
 }

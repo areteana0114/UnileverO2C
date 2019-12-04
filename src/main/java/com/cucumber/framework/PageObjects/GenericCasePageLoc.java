@@ -47,5 +47,16 @@ public interface GenericCasePageLoc {
     String xpath_cfs_default_NotAvailable="//div[text()='Customer does not have CFS by default  please contact the CFS administrator']";
     String xpath_no_cfs_assigned="//div[text()='Customer does not have CFS  assigned to  please contact the CFS administrator']";
     
+    //Email Inbound and Outbound xpaths
+    
+    String xpath_sendmail_link="//a/span[@class='menu-item-title-wrap']/span[text()='Send mail']";
+    String xpath_selectcp_btn="//button[text()='Select CP']";
+    String xpath_selectcp_chkbox="//input[@id='39926e3f']";
+    String xpath_cp_submit_btn="//button[text()='  Submit ']";
+    //String xpath_informationonly_btn="//label[contains(@for,'Information Only')]";
+    //String xpath_pendingresponseonly_btn="//label[contains(@for,'Pending Response')]";
+    String xpath_email_destination_dd="//select[@id='33701bc1']";
+    String xpath_sendemail_btn="//button[text()='Send Email']";
+    
     
 }
