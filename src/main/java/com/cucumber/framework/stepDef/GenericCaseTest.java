@@ -20,9 +20,10 @@ public class GenericCaseTest {
 	
 	
 	@Given("Select {string} from search results dropdown")
-	public void select_from_search_results_dropdown(String value) {
+	public void select_from_search_results_dropdown(String value) throws Exception {
 		genericcasepage=new GenericCasePage(TestBase.getDriver());
 		genericcasepage.sendGenericCaseObject(genericcasepage);
+		genericcasepage.closeCaseIdTab();	
 		genericcasepage.selectCustomersFromdropdown(value);
 	}
 
@@ -222,9 +223,23 @@ public class GenericCaseTest {
 		genericcasepage.clickOnSendEmailBtn();
 	}
 
-
+	@When("Click on three dots button in search with case id")
+	public void click_on_three_dots_button_in_search_with_case_id() throws Exception {
+		genericcasepage.clickOnThreeDotsInSearchCaseId();
+	}
 	
+	@When("Click on Email Information tab")
+	public void click_on_email_information_tab() throws Exception {
+		genericcasepage.clickOnEmailInformationTab();
+	}
 	
+	@When("Verify the reply email attachment is present for {string}")
+	public void verify_the_reply_email_attachment_is_present(String caseid) throws Exception {
+		genericcasepage.verifyEmailSubjectForRE(caseid);
+	}
 	
-	
+	@When("Verify the message case cannot be created {string}")
+	public void verify_the_message_case_cannot_be_created(String message) throws Exception {
+		genericcasepage.verifyCaseCanNotCreate(message);
+	}
 }

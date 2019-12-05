@@ -46,7 +46,7 @@ public interface GenericCasePageLoc {
     String xpath_cp_dd="//select[@id='37d826bb']";
     String xpath_cfs_default_NotAvailable="//div[text()='Customer does not have CFS by default  please contact the CFS administrator']";
     String xpath_no_cfs_assigned="//div[text()='Customer does not have CFS  assigned to  please contact the CFS administrator']";
-    
+    String xpath_casecannotcreate="//div[contains(text(),'Case can`t be created.')]";
     //Email Inbound and Outbound xpaths
     
     String xpath_sendmail_link="//a/span[@class='menu-item-title-wrap']/span[text()='Send mail']";
@@ -58,5 +58,8 @@ public interface GenericCasePageLoc {
     String xpath_email_destination_dd="//select[@id='33701bc1']";
     String xpath_sendemail_btn="//button[text()='Send Email']";
     
-    
+    String xpath_caseidsearch_threedots_btn="//button[contains(@name,'SearchResultsWorkCasesGrid_D_SearchResultsFor')]";
+    String xpath_caseidsearch_closetab="//span[@title='Close Tab']";
+    String xpath_caseidsearch_emailinformationtab="//div[@aria-label='Email information']/h3[text()='Email information']";
+    String xpath_replymail_subject="//a[contains(@id,'att_feed_desc') and contains(text(),'Re:')]";
 }

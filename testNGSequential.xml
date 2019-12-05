@@ -5,12 +5,12 @@
 	<test name="TestDemo">
 
 		<classes>
-			 <class name="com.cucumber.framework.runner.LoginRunner" /> 
-				<!-- <class name="com.cucumber.framework.runner.LogoutRunner" /> 
-				<class name="com.cucumber.framework.runner.ScheduleActivityRunner" /> --> 
+			<!--  <class name="com.cucumber.framework.runner.LoginRunner" /> 
+				 <class name="com.cucumber.framework.runner.LogoutRunner" /> 
+				<class name="com.cucumber.framework.runner.ScheduleActivityRunner" />  -->
 				
 
-			<!-- <class name="com.cucumber.framework.runner.CommonRunner" /> -->
+			<class name="com.cucumber.framework.runner.CommonRunner" />
 		</classes>
 	</test>
 

@@ -33,6 +33,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	
 	public void clickSearchIconbtn() throws Exception {
 		xpath_GenericMethod_Click(xpath_searchicon_btn);
+		
 	}
 	
 	public void verifyResult(String expectedresult) throws Exception {
@@ -266,7 +267,14 @@ try {
 	}
 	
 	public void verifyUpdatedCaseStatus(String expectedupdatedcasestatus) throws Exception {
+		try {
+			xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+			waitFor(2);
 		String updatedstatusxpath="//a[text()='  "+expectedupdatedcasestatus+"  ']";
+		System.out.println(updatedstatusxpath+" "+expectedupdatedcasestatus);
 		boolean casestatus=xpath_Genericmethod_VerifyTextEquals(updatedstatusxpath, expectedupdatedcasestatus);
 		Assert.assertTrue(casestatus,"Status of the case is not equal");
 		
@@ -311,7 +319,31 @@ try {
 		xpath_GenericMethod_Click(xpath_sendemail_btn);
 	}
 	
+	public void clickOnThreeDotsInSearchCaseId() throws Exception {
+		xpath_GenericMethod_Click(xpath_caseidsearch_threedots_btn);
+	}
 	
+	public void closeCaseIdTab() throws Exception {
+		try {
+		xpath_GenericMethod_Click(xpath_caseidsearch_closetab);
+		}catch(Exception e) {
+			System.out.println("No close Tab Element Found");
+		}
+	}
 	
+	public void clickOnEmailInformationTab() throws Exception {
+		xpath_GenericMethod_Click(xpath_caseidsearch_emailinformationtab);
+	}
 	
+	public void verifyEmailSubjectForRE(String caseid) throws Exception {
+		if(xpath_Genericmethod_verifyElementPresent(xpath_replymail_subject)) {
+			Assert.assertTrue(xpath_Genericmethod_verifyElementPresent(xpath_replymail_subject),"Reply Mail attachment is not available for :"+caseid);
+		}else {
+		    Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_replymail_subject),"Reply Mail attachment is available for :"+caseid);
+		}
+	}
+	
+	public void verifyCaseCanNotCreate(String message) throws Exception {
+		Assert.assertTrue(xpath_Genericmethod_VerifyTextEquals(xpath_casecannotcreate, message),"Case Not created element is not present");
+	}
 }
