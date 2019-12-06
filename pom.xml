@@ -140,7 +140,7 @@
 					</suiteXmlFiles>
 					<!-- <systemPropertyVariables> <Browser>${browserName}</Browser> <URL>${url}</URL> 
 						</systemPropertyVariables> -->  <!-- System property part Runs from jenkins -->
-					<argLine>-Dcucumber.options="--tags @GC_Kato_TC5"</argLine>   <!-- Run from local for single scenario execution original syntax is -Dcucumber.options=" 
+					<argLine>-Dcucumber.options="--tags @GC_Kato_TC9"</argLine>   <!-- Run from local for single scenario execution original syntax is -Dcucumber.options=" 
 						two hyphens tags @Test3,@Test1" -->
 				</configuration>
 			</plugin>

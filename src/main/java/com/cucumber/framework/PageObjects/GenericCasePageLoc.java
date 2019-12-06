@@ -25,7 +25,7 @@ public interface GenericCasePageLoc {
     String xpath_remarksinupdatestatus_textbox="//textarea[@id='9b497c2a' and @data-test-id='20190822121749096547629']";
     String xpath_updatestatus_submit_btn="//button[@id='ModalButtonSubmit' and text()='  Submit ']";
     String xpath_follow_button="//button[@name='pyActionLabelDisplaySection_pyWorkPage_11' and text()='Follow']";
-    //Advance customer search xpaths
+	/* Advance customer search xpaths */
     String xpath_advancecustomersearch_icon_hover="//li[@title='Customer Search']";
     String xpath_advancecustomersearch_icon_link="//span[@class='menu-item-title' and text()='Customer Search']";
     String xpath_advancecustomernumber_textbox="//input[@id='45bb12ca' and @title='Search case ID']";
@@ -33,22 +33,22 @@ public interface GenericCasePageLoc {
     String xpath_advancetwodots_button="(//*[contains(@id,'$PD_CustomerSearch')]/td[13])[1]";
     String xpath_advancestartresearch_btn="//ul[starts-with(@id,'pyNavigation')]/li[2]/a";
     String xpath_advancecreategenericcase_btn="//ul[starts-with(@id,'pyNavigation')]/li[1]/a";
-    //Advance search create generic case xpaths
+	/* Advance search create generic case xpaths */
     String xpath_casedesc_cgc_textbox="//input[@id='28b55c1b']";
     String xpath_type1_cgc_dd="//select[@id='0960fcdd']";
     String xpath_type2_cgc_dd="//select[@id='49313c1e']";
     String xpath_updatestatus_cgc_dd="//select[@id='fa702c8a']";
     String xpath_remarksinupdatestatus_cgc_textbox="//textarea[@id='bdb9cbe6' and @data-test-id='20190822121749096547629']";
     
-    //CFS and CP determination xpaths
+	/* CFS and CP determination xpaths */
     String xpath_custno_element="//tbody/tr[@id='$PpySearchResults$ppxResults$l1']/td[1]";
     String xpath_cfs_dd="//select[@id='37faae9b']";
     String xpath_cp_dd="//select[@id='37d826bb']";
     String xpath_cfs_default_NotAvailable="//div[text()='Customer does not have CFS by default  please contact the CFS administrator']";
     String xpath_no_cfs_assigned="//div[text()='Customer does not have CFS  assigned to  please contact the CFS administrator']";
     String xpath_casecannotcreate="//div[contains(text(),'Case can`t be created.')]";
-    //Email Inbound and Outbound xpaths
     
+	/* Email Inbound and Outbound xpaths */
     String xpath_sendmail_link="//a/span[@class='menu-item-title-wrap']/span[text()='Send mail']";
     String xpath_selectcp_btn="//button[text()='Select CP']";
     String xpath_selectcp_chkbox="//input[@id='39926e3f']";
@@ -62,4 +62,16 @@ public interface GenericCasePageLoc {
     String xpath_caseidsearch_closetab="//span[@title='Close Tab']";
     String xpath_caseidsearch_emailinformationtab="//div[@aria-label='Email information']/h3[text()='Email information']";
     String xpath_replymail_subject="//a[contains(@id,'att_feed_desc') and contains(text(),'Re:')]";
+    
+	/* Assign To xpaths */
+    String xpath_assignto_btn="//a[@data-test-id='20190827092526022488592' and text()='Assign To']";
+    String xpath_assign_to_cfs_link="//span[text()='Assign To CFS']";
+    String xpath_assign_to_newassignee_link="//span[text()='Assign To New Assignee']";
+    String xpath_assign_to_previousassignee_link="//span[text()='Assign To Previous Assignee']";
+    String xpath_assign_to_workbasket_link="//span[text()='Assign To Work Basket']";
+    String xpathstart_caseid = "//tbody/tr[";
+    String xpathend_caseid= "]/td[1]";  
+    String xpath_previousassigneelist_dd="//select[@id='1bb11c02']";
+    String xpath_previousassignee_submit_btn="//button[text()='Submit']";
+    String xpath_newsassigneelist_dd="//input[@id='1bb11c02']";
 }

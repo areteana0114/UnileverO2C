@@ -14,7 +14,7 @@ import com.cucumber.framework.helper.Logger.LoggerHelper;
 public class GenericCasePage extends CustomerServ implements GenericCasePageLoc {
 	private final Logger log = LoggerHelper.getLogger(GenericCasePage.class);
 	GenericCasePage genericcasepage;
-
+	String actualcaseid_value;
 	public GenericCasePage(WebDriver driver) {
 		super(driver);
 	}
@@ -104,6 +104,8 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		boolean caseid=xpath_Genericmethod_verifyElementPresent(xpath_genericcase_id);
 		String caseid_value=xpath_Genericmethod_getElementText(xpath_genericcase_id);
 		System.out.println(caseid_value);
+		actualcaseid_value=caseid_value.substring(1, 8);
+		System.out.println(actualcaseid_value);
 		Assert.assertTrue(caseid, "Generic case has not been created");
 	}
 	
@@ -346,4 +348,37 @@ try {
 	public void verifyCaseCanNotCreate(String message) throws Exception {
 		Assert.assertTrue(xpath_Genericmethod_VerifyTextEquals(xpath_casecannotcreate, message),"Case Not created element is not present");
 	}
+	
+	public void clickOnAssignToButton() throws Exception {
+		xpath_GenericMethod_Click(xpath_assignto_btn);
+	}
+	public void clickOnAssignToCFSButton() throws Exception {
+		xpath_GenericMethod_Click(xpath_assign_to_cfs_link);
+	}
+	
+public void clickOnCaseIdLinkInMyCasesTab() throws Exception {
+		xpath_GenericMethod_ClickWBResultsRow(actualcaseid_value, xpathstart_caseid, xpathend_caseid, 1);
+	}
+public void clickOnAssignToPreviousAssigneeButton() throws Exception {
+	xpath_GenericMethod_Click(xpath_assign_to_previousassignee_link);
+}
+public void clickOnAssignToNewAssigneeButton() throws Exception {
+	xpath_GenericMethod_Click(xpath_assign_to_newassignee_link);
+}
+public void closeBrowser() {
+	driver.close();
+	waitFor(2);
+}
+public void selectPreviousAssigneeFromDropdown(String previousassignee) throws Exception {
+   xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_previousassigneelist_dd, previousassignee);
+   xpath_GenericMethod_Click(xpath_previousassignee_submit_btn);
+}
+
+public void selectnewAssigneeFromDropdown(String newassignee) throws Exception {
+	xpath_GenericMethod_Sendkeys(xpath_newsassigneelist_dd, newassignee);
+	xpath_GenericMethod_Click(xpath_previousassignee_submit_btn);
+	  
+	}
+
+
 }

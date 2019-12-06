@@ -242,4 +242,43 @@ public class GenericCaseTest {
 	public void verify_the_message_case_cannot_be_created(String message) throws Exception {
 		genericcasepage.verifyCaseCanNotCreate(message);
 	}
+	
+
+	@Then("Click on Assign To button")
+	public void click_on_assign_to_button() throws Exception {
+		genericcasepage.clickOnAssignToButton();
+	}
+
+	@Then("Click on Assign To CFS button")
+	public void click_on_assign_to_cfs_button() throws Exception {
+		genericcasepage.clickOnAssignToCFSButton();
+	}
+	
+	@Then("Click on case id in My Cases tab")
+	public void click_on_case_id_in_my_cases_tab() throws Exception {
+		genericcasepage.clickOnCaseIdLinkInMyCasesTab();
+	}
+	@Then("Click on Assign To Previous Assignee")
+	public void click_on_assign_to_previous_assignee() throws Exception {
+		genericcasepage.clickOnAssignToPreviousAssigneeButton();
+	}
+	
+	@Then("Close the browser")
+	public void close_the_browser() throws Exception {
+		genericcasepage.closeBrowser();
+	}
+	
+	@Then("Click on Assign To New Assignee")
+	public void click_on_assign_to_new_assignee() throws Exception {
+		genericcasepage.clickOnAssignToNewAssigneeButton();
+	}
+	@Then("Select the previous Assignee {string} and click on submit")
+	public void select_the_previous_assignee_and_click_on_submit(String previousassignee) throws Exception {
+		genericcasepage.selectPreviousAssigneeFromDropdown(previousassignee);
+	}
+	@Then("Select the New Assignee {string} and click on submit")
+	public void select_the_new_assignee_and_click_on_submit(String newassignee) throws Exception {
+		genericcasepage.selectnewAssigneeFromDropdown(newassignee);
+	}
+	
 }
