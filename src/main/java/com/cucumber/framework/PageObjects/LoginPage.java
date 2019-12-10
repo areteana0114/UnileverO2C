@@ -29,43 +29,37 @@ public class LoginPage extends CustomerServ implements LoginPageLoc {
 		// System.out.println("In sendLoginObject method search page"+this.loginpage);
 	}
 
-	public void setUserName(String username) {
+	public void setUserName(String username) throws Exception {
 		/*
 		 * WebElement username_txtbox=driver.findElement(By.xpath(username_xpath));
 		 * loginpage.waitForElement(username_txtbox, 3);
 		 * username_txtbox.sendKeys(username); //System.out.println("UserName" +driver);
 		 */
-		try {
+		
 			SeleniumFunc.xpath_GenericMethod_Sendkeys(username_xpath, username);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password) throws Exception {
 		/*
 		 * WebElement password_txtbox=driver.findElement(By.xpath(password_xpath));
 		 * loginpage.waitForElement(password_txtbox, 3);
 		 * password_txtbox.sendKeys(password); //System.out.println("Password" +driver);
 		 */
-		try {
+		
 			SeleniumFunc.xpath_GenericMethod_Sendkeys(password_xpath, password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
-	public void clickOnLoginbtn() {
+	public void clickOnLoginbtn() throws Exception {
 		/*
 		 * WebElement login_btn=driver.findElement(By.xpath(login_btn_xpath));
 		 * loginpage.waitForElement(login_btn, 3); login_btn.click();
 		 * //System.out.println("Clicked login button" +driver); loginpage.waitFor(5);
 		 */
-		try {
+	
 			SeleniumFunc.xpath_GenericMethod_Click(login_btn_xpath);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} /*
+		 /*
 			 * try { WebElement
 			 * loginclosebtn=driver.findElement(By.xpath(loginclosebtn_xpath));
 			 * waitForElement(loginclosebtn,2); loginclosebtn.click();

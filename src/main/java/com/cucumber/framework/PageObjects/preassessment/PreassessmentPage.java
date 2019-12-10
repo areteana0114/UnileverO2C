@@ -163,7 +163,7 @@ public class PreassessmentPage extends CustomerServ implements PreassessmentPage
 		waitFor(10);
 	}
 	
-	public void loginPAOperator() {
+	public void loginPAOperator() throws Exception {
 		//loginpage=new LoginPage(driver);
 		if(operator.equalsIgnoreCase("Melvin Goh")) {
 			System.out.println(operator);

@@ -259,82 +259,82 @@ Feature: Generic Case Creation
   #| Username                             | Password  | Value     | CustomerNumber | ServiceCase  | Message |
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0090003099 | Generic Case | Case can`t be created. Customer does not have any CFS assigned, please contact the CFS administrator        |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC8
-  Scenario Outline: Case Status and Case responsible verification for Generic Case.
-    Given Open the browser and navigate to the url
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
-    And I click on Login button
-    Then Login should be successful
-    And Select "<Value>" from search results dropdown
-    And Enter "<CustomerNumber>" into search field
-    When click on Search icon
-    Then search results corresponding to "<CustomerNumber>" should be displayed
-    When Click on three dots button
-    And Click on start research button
-    And Hover On Add Task button Pops
-    And Click on Add Task button in OtoC
-    And Select the required "<ServiceCase>"
-    And Click on the Add Tasks button
-    And Select values from "<type1>" and "<type2>" dropdown
-    And Click on Parties and Organization tab
-    And Select values from "<SalesOrg>" and "<DistChannel>"
-    And Click on Save button
-    Then Verify the Generic case is created
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus1>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus1>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To CFS button
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-    When I enter username as "<Username2>"
-    And I enter password as "<Password2>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus2>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus2>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To Previous Assignee
-    And Select the previous Assignee "<PrevoiusAssignee>" and click on submit
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus3>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus3>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To New Assignee
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-
-    Examples: 
-      | Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response |
+  #@Smoke_GC_Kato @GC_Kato_TC8
+  #Scenario Outline: Case Status and Case responsible verification for Generic Case.
+    #Given Open the browser and navigate to the url
+    #When I enter username as "<Username1>"
+    #And I enter password as "<Password1>"
+    #And I click on Login button
+    #Then Login should be successful
+    #And Select "<Value>" from search results dropdown
+    #And Enter "<CustomerNumber>" into search field
+    #When click on Search icon
+    #Then search results corresponding to "<CustomerNumber>" should be displayed
+    #When Click on three dots button
+    #And Click on start research button
+    #And Hover On Add Task button Pops
+    #And Click on Add Task button in OtoC
+    #And Select the required "<ServiceCase>"
+    #And Click on the Add Tasks button
+    #And Select values from "<type1>" and "<type2>" dropdown
+    #And Click on Parties and Organization tab
+    #And Select values from "<SalesOrg>" and "<DistChannel>"
+    #And Click on Save button
+    #Then Verify the Generic case is created
+    #And Click on Edit button
+    #And Click on OtherActions button
+    #And Click on UpdateStatus link
+    #And Select status as "<UpdateStatus1>"
+    #And Click on Submit button in update status pop up
+    #And Click on Save button
+    #And Verify the updated case status as "<UpdateStatus1>"
+    #And Click on Edit button
+    #And Click on Assign To button
+    #And Click on Assign To CFS button
+    #When I click on Logout button
+    #And I click on Logout
+    #Then Logout should be successful
+    #When I enter username as "<Username2>"
+    #And I enter password as "<Password2>"
+    #And I click on Login button
+    #Then Login should be successful
+    #And Click on case id in My Cases tab
+    #And Click on Edit button
+    #And Click on OtherActions button
+    #And Click on UpdateStatus link
+    #And Select status as "<UpdateStatus2>"
+    #And Click on Submit button in update status pop up
+    #And Click on Save button
+    #And Verify the updated case status as "<UpdateStatus2>"
+    #And Click on Edit button
+    #And Click on Assign To button
+    #And Click on Assign To Previous Assignee
+    #And Select the previous Assignee "<PrevoiusAssignee>" and click on submit
+    #When I click on Logout button
+    #And I click on Logout
+    #Then Logout should be successful
+    #When I enter username as "<Username1>"
+    #And I enter password as "<Password1>"
+    #And I click on Login button
+    #Then Login should be successful
+    #And Click on case id in My Cases tab
+    #And Click on Edit button
+    #And Click on OtherActions button
+    #And Click on UpdateStatus link
+    #And Select status as "<UpdateStatus3>"
+    #And Click on Submit button in update status pop up
+    #And Click on Save button
+    #And Verify the updated case status as "<UpdateStatus3>"
+    #And Click on Edit button
+    #And Click on Assign To button
+    #And Click on Assign To New Assignee
+    #When I click on Logout button
+    #And I click on Logout
+    #Then Logout should be successful
+#
+    #Examples: 
+      #| Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response |
 
   #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | Resolved-Withdrawn |
   #| manikumar.kosireddi@Areteanstech.com | Rules@123   | Customers |     0000088243 | Generic Case | Order Entry      | Additional Order                | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress |
@@ -342,57 +342,190 @@ Feature: Generic Case Creation
   #
   #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC9
-  Scenario Outline: Generic case Routing to CFS using Assign To CFS option.
-    Given Open the browser and navigate to the url
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
-    And I click on Login button
-    Then Login should be successful
-    And Select "<Value>" from search results dropdown
-    And Enter "<CustomerNumber>" into search field
-    When click on Search icon
-    Then search results corresponding to "<CustomerNumber>" should be displayed
-    When Click on three dots button
-    And Click on start research button
-    And Hover On Add Task button Pops
-    And Click on Add Task button in OtoC
-    And Select the required "<ServiceCase>"
-    And Click on the Add Tasks button
-    And Select values from "<type1>" and "<type2>" dropdown
-    And Click on Parties and Organization tab
-    And Select values from "<SalesOrg>" and "<DistChannel>"
-    And Click on Save button
-    Then Verify the Generic case is created
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To CFS button
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-    When I enter username as "<Username2>"
-    And I enter password as "<Password2>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-
-    Examples: 
-      | Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus       | Username2                              | Password2 |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
-
+  #@Smoke_GC_Kato @GC_Kato_TC9
+  #Scenario Outline: Generic case Routing to CFS using Assign To CFS option.
+  #Given Open the browser and navigate to the url
+  #When I enter username as "<Username1>"
+  #And I enter password as "<Password1>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Select "<Value>" from search results dropdown
+  #And Enter "<CustomerNumber>" into search field
+  #When click on Search icon
+  #Then search results corresponding to "<CustomerNumber>" should be displayed
+  #When Click on three dots button
+  #And Click on start research button
+  #And Hover On Add Task button Pops
+  #And Click on Add Task button in OtoC
+  #And Select the required "<ServiceCase>"
+  #And Click on the Add Tasks button
+  #And Select values from "<type1>" and "<type2>" dropdown
+  #And Click on Parties and Organization tab
+  #And Select values from "<SalesOrg>" and "<DistChannel>"
+  #And Click on Save button
+  #Then Verify the Generic case is created
+  #And Click on Edit button
+  #And Click on OtherActions button
+  #And Click on UpdateStatus link
+  #And Select status as "<UpdateStatus>"
+  #And Click on Submit button in update status pop up
+  #And Click on Save button
+  #And Verify the updated case status as "<UpdateStatus>"
+  #And Click on Edit button
+  #And Click on Assign To button
+  #And Click on Assign To CFS button
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #When I enter username as "<Username2>"
+  #And I enter password as "<Password2>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Click on case id in My Cases tab
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #
+  #Examples:
+  #| Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus       | Username2                              | Password2 |
+  #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC10
-  Scenario Outline: Generic case Routing to Previous Assignee using Assign to Previous Assignee Option.
+  #@Smoke_GC_Kato @GC_Kato_TC10
+  #Scenario Outline: Generic case Routing to Previous Assignee using Assign to Previous Assignee Option.
+  #Given Open the browser and navigate to the url
+  #When I enter username as "<Username1>"
+  #And I enter password as "<Password1>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Select "<Value>" from search results dropdown
+  #And Enter "<CustomerNumber>" into search field
+  #When click on Search icon
+  #Then search results corresponding to "<CustomerNumber>" should be displayed
+  #When Click on three dots button
+  #And Click on start research button
+  #And Hover On Add Task button Pops
+  #And Click on Add Task button in OtoC
+  #And Select the required "<ServiceCase>"
+  #And Click on the Add Tasks button
+  #And Select values from "<type1>" and "<type2>" dropdown
+  #And Click on Parties and Organization tab
+  #And Select values from "<SalesOrg>" and "<DistChannel>"
+  #And Click on Save button
+  #Then Verify the Generic case is created
+  #And Click on Edit button
+  #And Click on OtherActions button
+  #And Click on UpdateStatus link
+  #And Select status as "<UpdateStatus1>"
+  #And Click on Submit button in update status pop up
+  #And Click on Save button
+  #And Verify the updated case status as "<UpdateStatus1>"
+  #And Click on Edit button
+  #And Click on Assign To button
+  #And Click on Assign To CFS button
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #When I enter username as "<Username2>"
+  #And I enter password as "<Password2>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Click on case id in My Cases tab
+  #And Click on Edit button
+  #And Click on OtherActions button
+  #And Click on UpdateStatus link
+  #And Select status as "<UpdateStatus2>"
+  #And Click on Submit button in update status pop up
+  #And Click on Save button
+  #And Verify the updated case status as "<UpdateStatus2>"
+  #And Click on Edit button
+  #And Click on Assign To button
+  #And Click on Assign To Previous Assignee
+  #And Select the previous Assignee "<PrevoiusAssignee>" and click on submit
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #When I enter username as "<Username1>"
+  #And I enter password as "<Password1>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Click on case id in My Cases tab
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #
+  #Examples:
+  #| Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee                     |
+  #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | manikumar.kosireddi@Areteanstech.com |
+  #Author U.Ramakrishna
+  #@Smoke_GC_Kato @GC_Kato_TC11 @Reg
+  #Scenario Outline: Generic case Routing to New Assignee using Assign to New Assignee Option.
+  #Given Open the browser and navigate to the url
+  #When I enter username as "<Username1>"
+  #And I enter password as "<Password1>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Select "<Value>" from search results dropdown
+  #And Enter "<CustomerNumber>" into search field
+  #When click on Search icon
+  #Then search results corresponding to "<CustomerNumber>" should be displayed
+  #When Click on three dots button
+  #And Click on start research button
+  #And Hover On Add Task button Pops
+  #And Click on Add Task button in OtoC
+  #And Select the required "<ServiceCase>"
+  #And Click on the Add Tasks button
+  #And Select values from "<type1>" and "<type2>" dropdown
+  #And Click on Parties and Organization tab
+  #And Select values from "<SalesOrg>" and "<DistChannel>"
+  #And Click on Save button
+  #Then Verify the Generic case is created
+  #And Click on Edit button
+  #And Click on OtherActions button
+  #And Click on UpdateStatus link
+  #And Select status as "<UpdateStatus1>"
+  #And Click on Submit button in update status pop up
+  #And Click on Save button
+  #And Verify the updated case status as "<UpdateStatus1>"
+  #And Click on Edit button
+  #And Click on Assign To button
+  #And Click on Assign To New Assignee
+  #And Select the New Assignee "<NewAssignee>" and click on submit
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #When I enter username as "<Username2>"
+  #And I enter password as "<Password2>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Click on case id in My Cases tab
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  
+  #Examples:
+  #| Username1                            | Password1 | UpdateStatus1 | NewAssignee                            | Username2                              | Password2 |
+  #| manikumar.kosireddi@Areteanstech.com | Rules@123 | New           | abhinash.kotikalapudi@Areteanstech.com | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
+  #
+  #Author U.Ramakrishna
+  #@Smoke_GC_Kato @GC_Kato_TC11 @Reg
+  #Scenario Outline: Generic case Routing Verify the case is routed to correct New Assignee worklist.
+  #Given Open the browser and navigate to the url
+  #When I enter username as "<Username2>"
+  #And I enter password as "<Password2>"
+  #And I click on Login button
+  #Then Login should be successful
+  #And Click on case id in My Cases tab
+  #When I click on Logout button
+  #And I click on Logout
+  #Then Logout should be successful
+  #
+  #Examples:
+#| Username2                              | Password2 |
+#| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
+  #
+  #Author U.Ramakrishna
+  @Smoke_GC_Kato @GC_Kato_TC12 @Reg
+  Scenario Outline: Generic case Routing to Workbasket using Assign to Workbasket Option.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
     And I enter password as "<Password1>"
@@ -422,7 +555,7 @@ Feature: Generic Case Creation
     And Verify the updated case status as "<UpdateStatus1>"
     And Click on Edit button
     And Click on Assign To button
-    And Click on Assign To CFS button
+    And Click on Assign To Workbasket link
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
@@ -430,80 +563,29 @@ Feature: Generic Case Creation
     And I enter password as "<Password2>"
     And I click on Login button
     Then Login should be successful
-    And Click on case id in My Cases tab
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus2>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus2>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To Previous Assignee
-    And Select the previous Assignee "<PrevoiusAssignee>" and click on submit
+    And Click on My Workbasket tab in Home page
+    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-
     Examples: 
-      | Username1                            | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee                     |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | manikumar.kosireddi@Areteanstech.com |
+      | Username1                              | Password1 | Value     | CustomerNumber | ServiceCase  | type1            | type2         | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                            | Password2 | UpdateStatus2    | WorkBasket                         |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Customer Billing | Output Issues | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | manikumar.kosireddi@Areteanstech.com | Rules@123 | Pending-Response | UnileverO2C:Process control basket |
 
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC11
-  Scenario Outline: Generic case Routing to New Assignee using Assign to New Assignee Option.
-    Given Open the browser and navigate to the url
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
-    And I click on Login button
-    Then Login should be successful
-    And Select "<Value>" from search results dropdown
-    And Enter "<CustomerNumber>" into search field
-    When click on Search icon
-    Then search results corresponding to "<CustomerNumber>" should be displayed
-    When Click on three dots button
-    And Click on start research button
-    And Hover On Add Task button Pops
-    And Click on Add Task button in OtoC
-    And Select the required "<ServiceCase>"
-    And Click on the Add Tasks button
-    And Select values from "<type1>" and "<type2>" dropdown
-    And Click on Parties and Organization tab
-    And Select values from "<SalesOrg>" and "<DistChannel>"
-    And Click on Save button
-    Then Verify the Generic case is created
-    And Click on Edit button
-    And Click on OtherActions button
-    And Click on UpdateStatus link
-    And Select status as "<UpdateStatus1>"
-    And Click on Submit button in update status pop up
-    And Click on Save button
-    And Verify the updated case status as "<UpdateStatus1>"
-    And Click on Edit button
-    And Click on Assign To button
-    And Click on Assign To New Assignee
-    And Select the New Assignee "<NewAssignee>" and click on submit
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-    When I enter username as "<Username2>"
-    And I enter password as "<Password2>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-
-    Examples: 
-      | Username1                            | Password1 | UpdateStatus1 | NewAssignee                            | Username2                              | Password2 |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | New           | abhinash.kotikalapudi@Areteanstech.com | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
+  #@Smoke_GC_Kato @GC_Kato_TC13 @Reg
+  #Scenario Outline: Generic case Routing Verify the case is routed to correct workbasket.
+    #Given Open the browser and navigate to the url
+    #When I enter username as "<Username1>"
+    #And I enter password as "<Password1>"
+    #And I click on Login button
+    #Then Login should be successful
+    #And Click on My Workbasket tab in Home page
+    #And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
+    #When I click on Logout button
+    #And I click on Logout
+    #Then Logout should be successful
+#
+    #Examples: 
+      #| Username1                            | Password1 | WorkBasket                         | CaseId  |
+      #| manikumar.kosireddi@Areteanstech.com | Rules@123 | UnileverO2C:Process control basket | GC-3935 |

@@ -1,6 +1,7 @@
 package com.cucumber.framework.PageObjects;
 
 import java.util.List;
+import java.util.prefs.Preferences;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,6 +16,8 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	private final Logger log = LoggerHelper.getLogger(GenericCasePage.class);
 	GenericCasePage genericcasepage;
 	String actualcaseid_value;
+	static String Pref_actualcaseid_value="";
+	static Preferences prefs;
 	public GenericCasePage(WebDriver driver) {
 		super(driver);
 	}
@@ -89,7 +92,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void clickOnSaveButton() throws Exception {
-		
+		waitFor(3);
 		xpath_GenericMethod_Click(xpath_save_btn);
 		waitFor(2);
 		try {
@@ -97,7 +100,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		waitFor(2);
+		//waitFor(2);
 	}
 	
 	public void verifyGenericCaseCreated() throws Exception {
@@ -105,8 +108,19 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		String caseid_value=xpath_Genericmethod_getElementText(xpath_genericcase_id);
 		System.out.println(caseid_value);
 		actualcaseid_value=caseid_value.substring(1, 8);
+		saveCaseIdPreference(actualcaseid_value);
 		System.out.println(actualcaseid_value);
 		Assert.assertTrue(caseid, "Generic case has not been created");
+	}
+	
+	public static void saveCaseIdPreference(String actualcaseid_value) {
+		prefs= Preferences.userNodeForPackage(GenericCasePage.class);
+		prefs.put(Pref_actualcaseid_value,actualcaseid_value);
+		} 
+	
+	public static String getCaseIdPreference() {
+		prefs= Preferences.userNodeForPackage(GenericCasePage.class);
+		return prefs.get(Pref_actualcaseid_value,Pref_actualcaseid_value);
 	}
 	
 	public void clickOnEditButton() throws Exception {
@@ -357,7 +371,12 @@ try {
 	}
 	
 public void clickOnCaseIdLinkInMyCasesTab() throws Exception {
-		xpath_GenericMethod_ClickWBResultsRow(actualcaseid_value, xpathstart_caseid, xpathend_caseid, 1);
+	String stored_caseid=getCaseIdPreference();
+	System.out.println("Stored Case id is: "+stored_caseid);
+	for(int i=1;i<=20;i++) {
+		xpath_GenericMethod_ClickWBResultsRow(stored_caseid, xpathstart_MyWL_caseid, xpathend_MyWL_caseid, i);
+		break;
+	}
 	}
 public void clickOnAssignToPreviousAssigneeButton() throws Exception {
 	xpath_GenericMethod_Click(xpath_assign_to_previousassignee_link);
@@ -379,6 +398,35 @@ public void selectnewAssigneeFromDropdown(String newassignee) throws Exception {
 	xpath_GenericMethod_Click(xpath_previousassignee_submit_btn);
 	  
 	}
+public void clickOnAssignToWBLink() throws Exception {
+	xpath_GenericMethod_Click(xpath_assign_to_workbasket_link);
+}
+
+public void clickOnWBTab() throws Exception {
+	xpath_GenericMethod_Click(xpath_workbasket_header);
+}
+
+public void clickOnViewQueueForDropdown(String workbasketname) throws Exception {
+	xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_viewqueuefor_dd,workbasketname);
+}
+
+public void clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab(String caseid) throws Exception {
+	String stored_caseid=getCaseIdPreference();
+	System.out.println("Stored Case id is: "+stored_caseid);
+	for(int i=1;i<=20;i++) {		
+	xpath_GenericMethod_ClickWBResultsRow(stored_caseid, xpathstart_MyWB_caseid, xpathend_MyWB_caseid, i);
+	break;
+	}
+}
+
+
+
+
+
+
+
+
+
 
 
 }

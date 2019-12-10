@@ -256,6 +256,8 @@ public class GenericCaseTest {
 	
 	@Then("Click on case id in My Cases tab")
 	public void click_on_case_id_in_my_cases_tab() throws Exception {
+		genericcasepage=new GenericCasePage(TestBase.getDriver());
+		genericcasepage.sendGenericCaseObject(genericcasepage);
 		genericcasepage.clickOnCaseIdLinkInMyCasesTab();
 	}
 	@Then("Click on Assign To Previous Assignee")
@@ -281,4 +283,19 @@ public class GenericCaseTest {
 		genericcasepage.selectnewAssigneeFromDropdown(newassignee);
 	}
 	
+	@Then("Click on Assign To Workbasket link")
+	public void click_on_assign_to_workbasket_link() throws Exception {
+		genericcasepage.clickOnAssignToWBLink();
+	}
+	@Then("Click on My Workbasket tab in Home page")
+	public void click_on_my_workbasket_tab_in_home_page() throws Exception {
+		genericcasepage=new GenericCasePage(TestBase.getDriver());
+		genericcasepage.sendGenericCaseObject(genericcasepage);
+		genericcasepage.clickOnWBTab();
+	}
+	@Then("Select workbasket {string} from view Queue for dropdown and click on case id {string}")
+	public void select_workbasket_from_view_queue_for_dropdown_and_click_on_case_id(String workbasketname,String caseid) throws Exception {
+		genericcasepage.clickOnViewQueueForDropdown(workbasketname);
+		genericcasepage.clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab(caseid);
+	}
 }

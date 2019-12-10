@@ -69,9 +69,15 @@ public interface GenericCasePageLoc {
     String xpath_assign_to_newassignee_link="//span[text()='Assign To New Assignee']";
     String xpath_assign_to_previousassignee_link="//span[text()='Assign To Previous Assignee']";
     String xpath_assign_to_workbasket_link="//span[text()='Assign To Work Basket']";
-    String xpathstart_caseid = "//tbody/tr[";
-    String xpathend_caseid= "]/td[1]";  
+    String xpathstart_MyWB_caseid = "//tbody/tr[@id='$PpgRepPgSubSectionCPMMyWorkBasketListBBB$ppxResults$l";
+    String xpathend_MyWB_caseid= "']/td[1]"; 
+    String xpathstart_MyWL_caseid = "//tbody/tr[@id='$PpgRepPgSubSectionpyUserWorkListBBB$ppxResults$l";
+    String xpathend_MyWL_caseid= "']/td[1]";  
     String xpath_previousassigneelist_dd="//select[@id='1bb11c02']";
     String xpath_previousassignee_submit_btn="//button[text()='Submit']";
     String xpath_newsassigneelist_dd="//input[@id='1bb11c02']";
+    
+	/* Home page xpaths */
+    String xpath_workbasket_header="//h3[contains(@id,'headerlabel') and text()='My Workbasket']";
+    String xpath_viewqueuefor_dd="//select[@id='126b0ac6']";
 }
