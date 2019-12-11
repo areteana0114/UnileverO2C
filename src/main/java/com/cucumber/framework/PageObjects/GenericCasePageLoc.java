@@ -37,7 +37,7 @@ public interface GenericCasePageLoc {
     String xpath_casedesc_cgc_textbox="//input[@id='28b55c1b']";
     String xpath_type1_cgc_dd="//select[@id='0960fcdd']";
     String xpath_type2_cgc_dd="//select[@id='49313c1e']";
-    String xpath_updatestatus_cgc_dd="//select[@id='fa702c8a']";
+    String xpath_updatestatus_cgc_dd="//select[@id='fa702c8a']"; 
     String xpath_remarksinupdatestatus_cgc_textbox="//textarea[@id='bdb9cbe6' and @data-test-id='20190822121749096547629']";
     
 	/* CFS and CP determination xpaths */
@@ -75,8 +75,8 @@ public interface GenericCasePageLoc {
     String xpathend_MyWL_caseid= "']/td[1]";  
     String xpath_previousassigneelist_dd="//select[@id='1bb11c02']";
     String xpath_previousassignee_submit_btn="//button[text()='Submit']";
-    String xpath_newsassigneelist_dd="//input[@id='1bb11c02']";
-    
+    String xpath_newsassigneelist_Mycases_dd="//input[@id='1bb11c02']";
+    String xpath_newsassigneelist_dd="//input[@id='e5267814']";
 	/* Home page xpaths */
     String xpath_workbasket_header="//h3[contains(@id,'headerlabel') and text()='My Workbasket']";
     String xpath_viewqueuefor_dd="//select[@id='126b0ac6']";

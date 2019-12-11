@@ -124,6 +124,11 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void clickOnEditButton() throws Exception {
+		try {
+			xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		xpath_GenericMethod_Click(xpath_edit_btn);
 	}
 	
@@ -138,8 +143,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	public void selectUpdateStatusValueFromDropdown(String statusvalue) throws Exception {
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_updatestatus_dd, statusvalue);
 		xpath_GenericMethod_Sendkeys(xpath_remarksinupdatestatus_textbox, statusvalue);
-
-	}
+		}
 	
 	public void clickOnSubmitButtonInUpdateStatus() throws Exception {
 		xpath_GenericMethod_Click(xpath_updatestatus_submit_btn);
@@ -394,7 +398,9 @@ public void selectPreviousAssigneeFromDropdown(String previousassignee) throws E
 }
 
 public void selectnewAssigneeFromDropdown(String newassignee) throws Exception {
+	
 	xpath_GenericMethod_Sendkeys(xpath_newsassigneelist_dd, newassignee);
+	
 	xpath_GenericMethod_Click(xpath_previousassignee_submit_btn);
 	  
 	}

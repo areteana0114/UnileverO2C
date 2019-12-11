@@ -102,6 +102,7 @@ public class GenericCaseTest {
 
 	@Then("Click on Edit button")
 	public void click_on_Edit_button() throws Exception {
+		
 		genericcasepage.clickOnEditButton();
 	}
 
@@ -258,6 +259,7 @@ public class GenericCaseTest {
 	public void click_on_case_id_in_my_cases_tab() throws Exception {
 		genericcasepage=new GenericCasePage(TestBase.getDriver());
 		genericcasepage.sendGenericCaseObject(genericcasepage);
+		genericcasepage.closeCaseIdTab();	
 		genericcasepage.clickOnCaseIdLinkInMyCasesTab();
 	}
 	@Then("Click on Assign To Previous Assignee")
