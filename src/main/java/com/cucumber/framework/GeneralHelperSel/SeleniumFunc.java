@@ -62,7 +62,7 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		waitFor(2);
+		//waitFor(1);
 	}
 
 	/* Method to get the current date time */
@@ -1552,15 +1552,19 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 			String actualText = driver.findElement(By.xpath(xpath)).getText();
 			if (actualText.equals(expectedText)) {
 				System.out.println("actualText is : " + actualText + " and expected text is: " + expectedText);
+				Reporter.log("Actual text is: "+actualText+" "+"and Expected text is: "+expectedText);
 				return flag = true;
 			} else {
 				System.out.println("actualText is : " + actualText + " and  expected text is: " + expectedText);
+				Reporter.log("Actual text is: "+actualText+" "+"and Expected text is: "+expectedText);
 				return flag;
 			}
 		} catch (Exception ex) {
 			System.out.println("actualText is :" + driver.findElement(By.xpath(xpath)).getText()
 					+ " and expected text is: " + expectedText);
 			System.out.println("text not matching" + ex);
+			Reporter.log("actualText is :" + driver.findElement(By.xpath(xpath)).getText()
+					+ " and expected text is: " + expectedText);
 			return flag;
 		}
 	}

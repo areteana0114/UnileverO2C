@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import com.cucumber.framework.CS.CustomerServ;
 import com.cucumber.framework.helper.Logger.LoggerHelper;
@@ -57,24 +59,26 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		xpath_GenericMethod_Click(xpath_startresearch_btn);
 	}
 	public void hoverOnAddtaskBtn() throws Exception {
-		try {
-		xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+		  try { 
+			  xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
+		  }catch(Exception e) { 
+			  System.out.println(e.getMessage()); 
+			  }
+		 }
+	
 	public void clickOnAddTaskbtn() throws Exception {
-		waitFor(2);
+		//waitFor(2);
 		xpath_GenericMethod_Click(xpath_addtask_btn);
 	}
 	
 	public void clickOnServiceCase(String servicecase) throws Exception {
-		waitFor(3);
+		//waitFor(3);
 		xpath_GenericMethod_Click("//a[text()='"+servicecase+"']");
 	}
 	
 	public void clickOnAddTasksbtn() throws Exception {
 		xpath_GenericMethod_Click(xpath_addtasks_btn);
+		waitFor(1);
 	}
 	
 	public void selectTypeOneAndTypetwoValues(String typeone,String typetwo) {
@@ -110,6 +114,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		actualcaseid_value=caseid_value.substring(1, 8);
 		saveCaseIdPreference(actualcaseid_value);
 		System.out.println(actualcaseid_value);
+		Reporter.log("Case Id Generated is :"+actualcaseid_value);
 		Assert.assertTrue(caseid, "Generic case has not been created");
 	}
 	
@@ -124,14 +129,17 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void clickOnEditButton() throws Exception {
-		try {
-			xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
 		xpath_GenericMethod_Click(xpath_edit_btn);
 	}
 	
+	public void clickOnEditButtonFromMyCasesOrMyWB() throws Exception {
+		 try { 
+			  xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox); 
+		  }catch(Exception e) 
+		  { System.out.println(e.getMessage()); 
+		  }
+		xpath_GenericMethod_Click(xpath_edit_btn);
+	}
 	public void clickOnOtherActionsButton() throws Exception {
 		xpath_GenericMethod_Click(xpath_otheractions_btn);
 	}
@@ -286,19 +294,46 @@ try {
 
 	}
 	
-	public void verifyUpdatedCaseStatus(String expectedupdatedcasestatus) throws Exception {
+	public void verifyCFSAndCP(String cfs, String cp) throws Exception {
+		String actualcfs;
+		String actualcp;	
 		try {
-			xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
+		waitFor(2);
+		actualcfs = xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cfs_dd);
+		System.out.println("Actual CFS is :"+actualcfs);
+		waitFor(1);
 		}catch(Exception e) {
-			System.out.println(e.getMessage());
+			actualcfs="";
 		}
+		
+		try {
 			waitFor(2);
+		    actualcp = xpath_Genericmethod_getFirstSelectedValueFromDropdown(xpath_cp_dd);
+		    System.out.println("Actual CP is :"+actualcp+".");
+		    waitFor(1);
+		}catch(Exception e) {
+			actualcp="";
+		}
+		
+		  if((cfs.equalsIgnoreCase(actualcfs))&&(cp.equalsIgnoreCase(actualcp))){
+		  System.out.println("Expected CFS :"+" "+cfs+"Actual CFS :"+" "+actualcfs+" "
+		  +"are same");
+		  System.out.println("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
+		  +"are same"); }else { System.out.println("CFS or CP data is invalid"); }
+		 
+		
+	}
+	
+	public void verifyUpdatedCaseStatus(String expectedupdatedcasestatus) throws Exception {
+		/*
+		 * try { xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox); }catch(Exception
+		 * e) { System.out.println(e.getMessage()); } waitFor(2);
+		 */
 		String updatedstatusxpath="//a[text()='  "+expectedupdatedcasestatus+"  ']";
 		System.out.println(updatedstatusxpath+" "+expectedupdatedcasestatus);
 		boolean casestatus=xpath_Genericmethod_VerifyTextEquals(updatedstatusxpath, expectedupdatedcasestatus);
 		Assert.assertTrue(casestatus,"Status of the case is not equal");
-		
-	}
+		}
 	
 	public void clickOnsendMailLink() throws Exception {
 		xpath_GenericMethod_Click(xpath_sendmail_link);
@@ -413,6 +448,7 @@ public void clickOnWBTab() throws Exception {
 }
 
 public void clickOnViewQueueForDropdown(String workbasketname) throws Exception {
+	waitFor(1);
 	xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_viewqueuefor_dd,workbasketname);
 }
 

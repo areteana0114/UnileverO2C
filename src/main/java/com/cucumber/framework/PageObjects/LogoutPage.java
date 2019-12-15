@@ -49,16 +49,16 @@ public class LogoutPage extends CustomerServ implements LogoutPageLoc  {
 	}
 	
 	public void clickOnLogoutButton() {
-		try {
-			//driver.findElement(By.xpath(login_popup_close_xpath)).click();
-			xpath_GenericMethod_Click(login_popup_close_xpath);
-	    }catch(Exception e) {
-	    	System.out.println(e.getMessage());
-	    }
+		
+		  try { //driver.findElement(By.xpath(login_popup_close_xpath)).click();
+		  xpath_GenericMethod_Click(login_popup_close_xpath); }catch(Exception e) {
+		  System.out.println(e.getMessage()); }
+		 
 		try {
 		//driver.findElement(By.xpath(logout_icon_xpath)).click();
+			
 			xpath_GenericMethod_Click(logout_icon_xpath);
-			 //waitFor(3);
+			 waitFor(3);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 	    }
@@ -66,7 +66,7 @@ public class LogoutPage extends CustomerServ implements LogoutPageLoc  {
 	public void clickOnLogoutLink() {
         try {
                xpath_GenericMethod_Click(logout_xpath);
-               waitFor(3);
+               waitFor(1);
         } catch (Exception e1) {  
                e1.printStackTrace();
         }      

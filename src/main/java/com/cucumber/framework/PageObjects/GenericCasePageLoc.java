@@ -19,6 +19,7 @@ public interface GenericCasePageLoc {
     String xpath_save_btn="//button[@name='ViewClaimDetailsGC_pyWorkPage_75' and text()='Save']";
     String xpath_genericcase_id="//span[@data-test-id='20160210082412023111408' and contains(text(),'GC-')]";
     String xpath_edit_btn="//button[text()='Edit']";
+    String xpath_casedesc_label="//span[text()='Case Description']";
     String xpath_otheractions_btn="//button[@title='Other actions']";
     String xpath_updatestatus_link="//a/span[@class='menu-item-title-wrap']/span[text()='Update Status']";
     String xpath_updatestatus_dd="//select[@id='c83ab417']"; 

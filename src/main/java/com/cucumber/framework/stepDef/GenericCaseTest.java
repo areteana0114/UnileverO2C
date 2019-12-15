@@ -105,6 +105,13 @@ public class GenericCaseTest {
 		
 		genericcasepage.clickOnEditButton();
 	}
+	
+
+	@Then("Click on Edit button after launching case from Mycases or MyWorkBasket tab")
+	public void click_on_edit_button_after_launching_case_from_mycases_or_myworkbasket_tab() throws Exception {
+		
+		genericcasepage.clickOnEditButtonFromMyCasesOrMyWB();
+	}
 
 	@Then("Click on OtherActions button")
 	public void click_on_OtherActions_button() throws Exception {
@@ -182,7 +189,13 @@ public class GenericCaseTest {
 	public void verify_the_CFS_and_CP_using_and_in_generic_case(String cfs, String cp,String cfsflag,String cpflag) throws Exception {
 	  genericcasepage.verifyCFSAndCP(cfs, cp, cfsflag, cpflag);
 	}
+	
+	@Given("Verify the CFS and CP using {string} and {string} in generic case")
+	public void verify_the_CFS_and_CP_using_and_in_generic_case(String cfs, String cp) throws Exception {
+		genericcasepage.verifyCFSAndCP(cfs, cp);
+	}
 
+	
 	@Given("Verify the updated case status as {string}")
 	public void verify_the_updated_case_status_as_using_xpath(String expectedupdatestatus) throws Exception {
 		genericcasepage.verifyUpdatedCaseStatus(expectedupdatestatus);
