@@ -176,9 +176,9 @@ public class GenericCaseTest {
 		System.out.println("Clicked on create generic case button");
 	}
 	
-	@Given("Select values from {string} and {string} dropdown in create generic case")
-	public void select_values_from_and_dropdown_in_create_generic_case(String typeonevalue, String typetwovalue) {
-		genericcasepage.selectTypeOneAndTypetwoValuesInCreateGenericCase(typeonevalue, typetwovalue);
+	@Given("Select values from {string} and {string} and {string} dropdown in create generic case")
+	public void select_values_from_and_dropdown_in_create_generic_case(String typeonevalue, String typetwovalue,String typethreevalue) {
+		genericcasepage.selectTypeOneAndTypetwoValuesInCreateGenericCase(typeonevalue, typetwovalue, typethreevalue);
 	}
 	@Given("Select status as {string} in the Create Generic Case\"")
 	public void select_status_as_in_the_Create_Generic_Case(String statusvalue) throws Exception {

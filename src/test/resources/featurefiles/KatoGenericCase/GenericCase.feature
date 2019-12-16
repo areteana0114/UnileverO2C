@@ -103,7 +103,7 @@ Feature: Generic Case Creation
     # Then search results corresponding to "<CustomerNumber>" should be displayed
     When Click on two dots button in Advance search screen
     And Click on create generic case button in Advance search screen
-    And Select values from "<type1>" and "<type2>" dropdown in create generic case
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown in create generic case
     # And Click on Parties and Organization tab
     # And Select values from "<SalesOrg>" and "<DistChannel>"
     And Verify the CFS and CP using "<ExpectedCFS>" and "<ExpectedCP>" in generic case
@@ -122,12 +122,12 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Completed |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-InProgress |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-Response   |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New                |
+      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Completed |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-InProgress |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-Response   |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New                |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC4
@@ -166,12 +166,13 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | Division           | CFS                   | CP               | UpdateStatus       | CFSFlag | CPFlag |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Resolved-Completed | Yes     | Yes    |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000001017 | Generic Case | Order Entry | Additional Order | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy            |                  | New                |         |        |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000543850 | Generic Case | Order Entry | Additional Order | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy            | Anderson Foister | Pending-Response   | No      | No     |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0090096255 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 22-OOH                | 10-Common Division | Justyna Dummy         |                  | Pending-InProgress | Yes     | No     |
+      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | Division           | CFS                   | CP               | UpdateStatus       | CFSFlag | CPFlag |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Resolved-Completed | Yes     | Yes    |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000001017 | Generic Case | Order Entry | Additional Order | Default | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy            |                  | New                |         |        |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000543850 | Generic Case | Order Entry | Additional Order | Default | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy            | Anderson Foister | Pending-Response   | No      | No     |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0090096255 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 22-OOH                | 10-Common Division | Justyna Dummy         |                  | Pending-InProgress | Yes     | No     |
 
+  #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC5
   Scenario Outline: Verify Message "Case can`t be created" when no CFS is assigned
     Given Open the browser and navigate to the url
@@ -239,21 +240,21 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | Division           | CFS                   | CP         | UpdateStatus | CFSFlag | CPFlag | PurposeOfEmail   | EmailDestination     |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Information Only |                      |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Customer             |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Customer Development |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | 3rd Party Provider   |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Finance              |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Logistic Warehouse   |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Logistic Transport   |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Ultralogistics       |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | MDM team             |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Planning             |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Trade Marketing      |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Quality              |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | B2C Service provider |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | IT Support Team      |
+      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | Division           | CFS                   | CP         | UpdateStatus | CFSFlag | CPFlag | PurposeOfEmail   | EmailDestination     |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Information Only |                      |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Customer             |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Customer Development |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | 3rd Party Provider   |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Finance              |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Logistic Warehouse   |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Logistic Transport   |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Ultralogistics       |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | MDM team             |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Planning             |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Trade Marketing      |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | Quality              |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | B2C Service provider |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Yes     | Yes    | Pending Response | IT Support Team      |
 
   #Author U.Ramakrishna
   #@Smoke_GC_Kato @GC_Kato_TC7
@@ -279,7 +280,7 @@ Feature: Generic Case Creation
   #| Username                             | Password  | Value | CaseId  | UpdateStatus       |
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3808 | Pending-InProgress |
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3807 | Pending-Response   |
-  #Author U.Ramakrishna
+  
   #Author U.Ramakrishna
   #@Smoke_GC_Kato @GC_Kato_TC8
   #Scenario Outline: Case Status and Case responsible verification for Generic Case.
@@ -408,8 +409,8 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus       | Username2                              | Password2 |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
+      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | UpdateStatus       | Username2                              | Password2 |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC10
@@ -476,8 +477,8 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee                    |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | ramakrishna.uppara@Areteanstech.com |
+      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee                    |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | ramakrishna.uppara@Areteanstech.com |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC11
@@ -526,26 +527,26 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | NewAssignee                            |
-      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | abhinash.kotikalapudi@Areteanstech.com |
+      | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1       | type2            | type3   | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | NewAssignee                            |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | abhinash.kotikalapudi@Areteanstech.com |
 
   #Author U.Ramakrishna
-  #@Smoke_GC_Kato @GC_Kato_TC11 @Reg
-  #Scenario Outline: Generic case Routing Verify the case is routed to correct New Assignee worklist.
-  #Given Open the browser and navigate to the url
-  #When I enter username as "<Username2>"
-  #And I enter password as "<Password2>"
-  #And I click on Login button
-  #Then Login should be successful
-  #And Click on case id in My Cases tab
-  #When I click on Logout button
-  #And I click on Logout
-  #Then Logout should be successful
-  #
-  #Examples:
-  #| Username2                              | Password2 |
-  #| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
-  #
+  @AlternateCode
+  Scenario Outline: Generic case Routing Verify the case is routed to correct New Assignee worklist.
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username2>"
+    And I enter password as "<Password2>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on case id in My Cases tab
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username2                              | Password2 |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
+
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC12
   Scenario Outline: Generic case Routing to Workbasket using Assign to Workbasket Option.
@@ -593,22 +594,26 @@ Feature: Generic Case Creation
     Then Logout should be successful
 
     Examples: 
-      | Username1                              | Password1 | Value     | CustomerNumber | ServiceCase  | type1            | type2         | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                           | Password2 | UpdateStatus2    | WorkBasket                         |
-      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Customer Billing | Output Issues | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | Pending-Response | UnileverO2C:Process control basket |
+      | Username1                              | Password1 | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3      | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                           | Password2 | WorkBasket                          |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Customer Billing | Output Issues   | Default    | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:Process control basket  |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Claim Management | Logistic Claims | Shortages  | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:Claims Logistic basket  |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Entry      | IDOC Blocked    | Idoc_Other | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:OrderEntryWB            |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Validation | Logistics       | Default    | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:Order Validation Basket |
+
   #Author U.Ramakrishna
-  #@Smoke_GC_Kato @GC_Kato_TC13 @Reg
-  #Scenario Outline: Generic case Routing Verify the case is routed to correct workbasket.
-    #Given Open the browser and navigate to the url
-    #When I enter username as "<Username1>"
-    #And I enter password as "<Password1>"
-    #And I click on Login button
-    #Then Login should be successful
-    #And Click on My Workbasket tab in Home page
-    #And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
-    #When I click on Logout button
-    #And I click on Logout
-    #Then Logout should be successful
-#
-    #Examples: 
-      #| Username1                            | Password1 | WorkBasket                         | CaseId  |
-      #| manikumar.kosireddi@Areteanstech.com | Rules@123 | UnileverO2C:Process control basket | GC-3935 |
+  @AlternateCode
+  Scenario Outline: Generic case Routing Verify the case is routed to correct workbasket.
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username1>"
+    And I enter password as "<Password1>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on My Workbasket tab in Home page
+    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username1                            | Password1 | WorkBasket                         | CaseId  |
+      | manikumar.kosireddi@Areteanstech.com | Rules@123 | UnileverO2C:Process control basket | GC-3935 |

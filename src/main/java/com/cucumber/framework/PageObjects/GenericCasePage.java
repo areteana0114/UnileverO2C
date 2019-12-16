@@ -205,7 +205,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		waitFor(2);
 		}
 	
-	public void selectTypeOneAndTypetwoValuesInCreateGenericCase(String typeone,String typetwo) {
+	public void selectTypeOneAndTypetwoValuesInCreateGenericCase(String typeone,String typetwo, String typethree) {
 try {
 	xpath_GenericMethod_Click(xpath_casedesc_cgc_textbox);
 }catch(Exception e) {
@@ -214,6 +214,7 @@ try {
 	waitFor(3);
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type1_cgc_dd, typeone);
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type2_cgc_dd, typetwo);
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type3_cgc_dd, typethree);
 
 	}
 	
