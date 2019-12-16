@@ -74,9 +74,9 @@ public class GenericCaseTest {
 		genericcasepage.clickOnAddTasksbtn();
 	}
 
-	@Given("Select values from {string} and {string} dropdown")
-	public void select_values_from_and_dropdown(String typeonevalue, String typetwovalue) {
-		genericcasepage.selectTypeOneAndTypetwoValues(typeonevalue, typetwovalue);
+	@Given("Select values from {string} and {string} and {string} dropdown")
+	public void select_values_from_and_dropdown(String typeonevalue, String typetwovalue,String typethreevalue) {
+		genericcasepage.selectTypeOneAndTypetwoValues(typeonevalue, typetwovalue, typethreevalue);
 	}
 
 	@Given("Click on Parties and Organization tab")

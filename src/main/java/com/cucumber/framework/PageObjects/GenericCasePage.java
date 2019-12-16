@@ -81,9 +81,10 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		waitFor(1);
 	}
 	
-	public void selectTypeOneAndTypetwoValues(String typeone,String typetwo) {
+	public void selectTypeOneAndTypetwoValues(String typeone,String typetwo,String typethree) {
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type1_dd, typeone);
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type2_dd, typetwo);
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_type3_dd, typethree);
 	}
 	
 	public void clickOnPartiesAndOrganizationTab() throws Exception {
@@ -257,6 +258,9 @@ try {
 			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
 			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+			Reporter.log("CFS Flag is: "+cfsflag+" "+"CP Flag is: "+cpflag);
+			Reporter.log("Actual CFS is: "+actualcfs+" "+"Expected CFS is: "+cfs);
+			Reporter.log("Actual CP is: "+actualcp+" "+"Expected CP is:: "+cp);
 		} else if ((cfsflag.equalsIgnoreCase("Yes") && (cpflag.equalsIgnoreCase("No")))) {
 			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
 					"Element is present, but expected is element should not be present");
@@ -265,6 +269,9 @@ try {
 			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
 			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+			Reporter.log("CFS Flag is: "+cfsflag+" "+"CP Flag is: "+cpflag);
+			Reporter.log("Actual CFS is: "+actualcfs+" "+"Expected CFS is: "+cfs);
+			Reporter.log("Actual CP is: "+actualcp+" "+"Expected CP is:: "+cp);
 		} else if ((cfsflag.equalsIgnoreCase("No") && (cpflag.equalsIgnoreCase("Yes")))) {
 			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
 					"Element is present, but expected is element should not be present");
@@ -273,6 +280,9 @@ try {
 			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
 			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+			Reporter.log("CFS Flag is: "+cfsflag+" "+"CP Flag is: "+cpflag);
+			Reporter.log("Actual CFS is: "+actualcfs+" "+"Expected CFS is: "+cfs);
+			Reporter.log("Actual CP is: "+actualcp+" "+"Expected CP is:: "+cp);
 		} else if ((cfsflag.equalsIgnoreCase("No") && (cpflag.equalsIgnoreCase("No")))) {
 			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_no_cfs_assigned),
 					"Element is present, but expected is element should not be present");
@@ -281,6 +291,9 @@ try {
 			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
 			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+			Reporter.log("CFS Flag is: "+cfsflag+" "+"CP Flag is: "+cpflag);
+			Reporter.log("Actual CFS is: "+actualcfs+" "+"Expected CFS is: "+cfs);
+			Reporter.log("Actual CP is: "+actualcp+" "+"Expected CP is:: "+cp);
 		}else {
 			System.out.println("No CFS Assigned to this customer, so assigning organization default CFS");
 			Assert.assertFalse(xpath_Genericmethod_verifyElementPresent(xpath_cfs_default_NotAvailable),
@@ -290,6 +303,9 @@ try {
 			Assert.assertEquals(actualcfs, cfs, "CFS data doesn't match");
 			Assert.assertEquals(actualcp, cp, "CP data doesn't match");
 			System.out.println("Data Matched for CFS & CP Flag :" + " " + cfsflag + " " + cpflag);
+			Reporter.log("CFS Flag is: "+cfsflag+" "+"CP Flag is: "+cpflag);
+			Reporter.log("Actual CFS is: "+actualcfs+" "+"Expected CFS is: "+cfs);
+			Reporter.log("Actual CP is: "+actualcp+" "+"Expected CP is:: "+cp);
 		}
 
 	}
@@ -318,8 +334,16 @@ try {
 		  if((cfs.equalsIgnoreCase(actualcfs))&&(cp.equalsIgnoreCase(actualcp))){
 		  System.out.println("Expected CFS :"+" "+cfs+"Actual CFS :"+" "+actualcfs+" "
 		  +"are same");
+		  Reporter.log("Expected CFS :"+" "+cfs+"Actual CFS :"+" "+actualcfs+" "
+		  +"are same");
 		  System.out.println("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
-		  +"are same"); }else { System.out.println("CFS or CP data is invalid"); }
+		  +"are same");
+		  Reporter.log("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
+				  +"are same");
+		  }else { 
+			  System.out.println("CFS or CP data is invalid"); 
+			  Reporter.log("CFS or CP data is invalid");
+			  }
 		 
 		
 	}

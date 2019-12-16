@@ -13,6 +13,7 @@ public interface GenericCasePageLoc {
     String xpath_addtask_btn="//button[@title='Add Task']";
     String xpath_type1_dd="//select[@id='2f904b11']"; 
     String xpath_type2_dd="//select[@id='c7bd997f']";
+    String xpath_type3_dd="//select[@id='d5a9ea2d']";
     String xpath_parties_Org_tab="//h1[text()='Parties & Organization']";
     String xpath_salesorg_dd="//select[@id='66905d38']";
     String xpath_distchnl_dd="//select[@id='02b682c3']";
@@ -38,6 +39,7 @@ public interface GenericCasePageLoc {
     String xpath_casedesc_cgc_textbox="//input[@id='28b55c1b']";
     String xpath_type1_cgc_dd="//select[@id='0960fcdd']";
     String xpath_type2_cgc_dd="//select[@id='49313c1e']";
+    String xpath_type3_cgc_dd="//select[@id='a2f89d55']";
     String xpath_updatestatus_cgc_dd="//select[@id='fa702c8a']"; 
     String xpath_remarksinupdatestatus_cgc_textbox="//textarea[@id='bdb9cbe6' and @data-test-id='20190822121749096547629']";
     
