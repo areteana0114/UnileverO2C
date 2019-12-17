@@ -17,6 +17,7 @@ public interface GenericCasePageLoc {
     String xpath_parties_Org_tab="//h1[text()='Parties & Organization']";
     String xpath_salesorg_dd="//select[@id='66905d38']";
     String xpath_distchnl_dd="//select[@id='02b682c3']";
+    String xpath_division_dd="//select[@id='d03587fd']";
     String xpath_save_btn="//button[@name='ViewClaimDetailsGC_pyWorkPage_75' and text()='Save']";
     String xpath_genericcase_id="//span[@data-test-id='20160210082412023111408' and contains(text(),'GC-')]";
     String xpath_edit_btn="//button[text()='Edit']";
@@ -25,6 +26,9 @@ public interface GenericCasePageLoc {
     String xpath_updatestatus_link="//a/span[@class='menu-item-title-wrap']/span[text()='Update Status']";
     String xpath_updatestatus_dd="//select[@id='c83ab417']"; 
     String xpath_remarksinupdatestatus_textbox="//textarea[@id='9b497c2a' and @data-test-id='20190822121749096547629']";
+    String xpath_casestatusremarks_verify="//div[@data-layout-id='201911191542580632']/h3[contains(@id,'headerlabel') and text()='Case Status Remarks']";
+    String startxpath_casestatusremarks_table="//table[@pl_prop_class='Unilever-FW-O2C-Data-CaseStatusDetails']/tbody/tr[";
+    String endxpath_casestatusremarks_table="]/td[2]";
     String xpath_updatestatus_submit_btn="//button[@id='ModalButtonSubmit' and text()='  Submit ']";
     String xpath_follow_button="//button[@name='pyActionLabelDisplaySection_pyWorkPage_11' and text()='Follow']";
 	/* Advance customer search xpaths */

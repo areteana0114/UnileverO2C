@@ -1413,7 +1413,39 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 		}
 	}
 	
-	
+	public static void xpath_GenericMethod_getText_TableResultsRow(String expectedtext, String xpathstart, String xpathend, int j)
+            throws Exception {
+     try {
+            if (driver.findElement(By.xpath(xpathstart + j + xpathend)).isDisplayed()) {
+                  Generic_getText_TableResults_Row(expectedtext, xpathstart, xpathend, j);
+
+                  waitFor(1);
+            }
+
+     } catch (Exception e) {
+            try {
+                  String framebytagName = goToFrameByTag_NameByXpath(xpathstart + j + xpathend);
+
+                  System.out.println("using getattribute name");
+                  if (framebytagName == null) {
+                         goToFrameByTag_IdByXpath(xpathstart + j + xpathend);
+                         System.out.println("using getattribute Id");
+                  }
+                  Generic_getText_TableResults_Row(expectedtext, xpathstart, xpathend, j);
+                  waitFor(1);
+                  // System.out.println("using getattribute Id");
+                  // driver.switchTo().defaultContent();
+            } catch (Exception e1) {
+                  System.out.println("sample test");
+                  System.out.println("switching to default content");
+                  driver.switchTo().defaultContent();
+                  Generic_getText_TableResults_Row(expectedtext, xpathstart, xpathend, j);
+                  waitFor(1);
+            }
+     }
+}
+
+
 	
 	
 	/*****************************************************************************************
@@ -1423,6 +1455,25 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 	 * Method to wait for an element until it is visible for the specified amount of
 	 * time
 	 */
+	
+	public static void Generic_getText_TableResults_Row(String expectedtext, String xpathstart, String xpathend, int j) {
+        for (int i = j; i <= 5; i++) {
+               WebElement actualtext = driver.findElement(By.xpath(xpathstart + i + xpathend));
+               try {
+                     if (actualtext.getText().equalsIgnoreCase(expectedtext)) {
+                            scrollToElement(actualtext);
+                            Reporter.log("Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
+                            
+                           // break;
+                     }
+               } catch (Exception e) {
+            	   Reporter.log("Expected text not Found: "+expectedtext);
+                     System.out.println("No such element" + e.getMessage());
+               }
+        }
+        // driver.switchTo().defaultContent();
+ }
+
 	public static void waitForElement(WebElement element, int timeunitForsec) {
 		WebDriverWait wait = new WebDriverWait(driver, timeunitForsec);
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -1600,13 +1651,13 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 		return exe.executeScript(script);
 	}
 
-	public static void scrollToElemet(WebElement element) {
+	public static void scrollToElement(WebElement element) {
 		executeScript("window.scrollTo(arguments[0],arguments[1])", element.getLocation().x, element.getLocation().y);
 		System.out.println(element);
 	}
 
 	public static void scrollToElemetAndClick(WebElement element) {
-		scrollToElemet(element);
+		scrollToElement(element);
 		element.click();
 		System.out.println(element);
 	}

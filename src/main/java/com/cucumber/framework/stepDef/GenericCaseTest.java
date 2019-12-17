@@ -84,9 +84,9 @@ public class GenericCaseTest {
 		genericcasepage.clickOnPartiesAndOrganizationTab();
 	}
 	
-	@Given("Select values from {string} and {string}")
-	public void select_values_from_and(String salesorg, String distchannel) {
-		genericcasepage.selectSalesOrgAndDistChannel(salesorg, distchannel);
+	@Given("Select values from {string} and {string} and {string}")
+	public void select_values_from_and(String salesorg, String distchannel,String division) {
+		genericcasepage.selectSalesOrgAndDistChannelAndDivision(salesorg, distchannel, division);
 	}
 
 	@Given("Click on Save button")
@@ -197,9 +197,15 @@ public class GenericCaseTest {
 
 	
 	@Given("Verify the updated case status as {string}")
-	public void verify_the_updated_case_status_as_using_xpath(String expectedupdatestatus) throws Exception {
+	public void verify_the_updated_case_status_as(String expectedupdatestatus) throws Exception {
 		genericcasepage.verifyUpdatedCaseStatus(expectedupdatestatus);
 	}
+	
+	@Given("Verify the remarks updated under Case Status Remarks tab {string}")
+	public void verify_the_remarks_updated_under_case_status_remarks_tab(String expectedcasestatusremarks) throws Exception {
+		genericcasepage.verifyCaseStatusRemarks(expectedcasestatusremarks);
+	}
+	
 	
 	@Given("Click on SendMail link")
 	public void click_on_SendMail_link() throws Exception {

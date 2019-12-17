@@ -91,9 +91,10 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		xpath_GenericMethod_Click(xpath_parties_Org_tab);
 	}
 	
-	public void selectSalesOrgAndDistChannel(String salesorg,String distchannel) {
+	public void selectSalesOrgAndDistChannelAndDivision(String salesorg,String distchannel,String division) {
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_salesorg_dd, salesorg);
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_distchnl_dd, distchannel);
+		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_division_dd, division);
 	}
 	
 	public void clickOnSaveButton() throws Exception {
@@ -359,7 +360,9 @@ try {
 		boolean casestatus=xpath_Genericmethod_VerifyTextEquals(updatedstatusxpath, expectedupdatedcasestatus);
 		Assert.assertTrue(casestatus,"Status of the case is not equal");
 		}
-	
+	public void verifyCaseStatusRemarks(String expectedcasestatusremarks) throws Exception {
+		xpath_GenericMethod_getText_TableResultsRow(expectedcasestatusremarks, startxpath_casestatusremarks_table, endxpath_casestatusremarks_table, 2);
+	}
 	public void clickOnsendMailLink() throws Exception {
 		xpath_GenericMethod_Click(xpath_sendmail_link);
 	}
