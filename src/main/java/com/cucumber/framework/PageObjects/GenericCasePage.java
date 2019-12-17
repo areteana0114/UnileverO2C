@@ -59,11 +59,23 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		xpath_GenericMethod_Click(xpath_startresearch_btn);
 	}
 	public void hoverOnAddtaskBtn() throws Exception {
-		  try { 
-			  xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
-		  }catch(Exception e) { 
-			  System.out.println(e.getMessage()); 
-			  }
+		/*
+		 * try { xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
+		 * }catch(Exception e) { System.out.println(e.getMessage()); }
+		 */
+		driver.switchTo().defaultContent();
+		//PegaGadget2Ifr
+		
+		waitFor(1);
+		driver.switchTo().frame("PegaGadget2Ifr");
+		waitFor(1);
+		WebElement ele=driver.findElement(By.xpath(xpath_Addtask_btn1));
+        waitForElement(ele, 1);
+        Actions action=new Actions(driver);
+        action.moveToElement(ele).build().perform();
+		//xpath_GenericMethod_Click(xpath_addtasks_btn);
+        waitFor(1);
+        xpath_GenericMethod_Click(xpath_addtask_btn);
 		 }
 	
 	public void clickOnAddTaskbtn() throws Exception {
@@ -204,6 +216,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		driver.switchTo().defaultContent();
 		waitFor(2);
 		driver.switchTo().frame("PegaGadget0Ifr");
+		waitFor(1);
 		driver.findElement(By.xpath("(//*[contains(@id,'$PD_CustomerSearch')]/td[13])[1]")).click();
 		//List<WebElement> eles=driver.findElements(By.xpath("//*[contains(@id,'$PD_CustomerSearch')]/td[2]"));
 		//System.out.println(eles.size());

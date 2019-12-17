@@ -32,36 +32,35 @@ public class LogoutPage extends CustomerServ implements LogoutPageLoc  {
 		//System.out.println("In sendLogoutObject method page"+this.logoutpage);
 	}
 	
-	public void clickOnDownArrow() {
-		try {
-			//driver.findElement(By.xpath(login_popup_close_xpath)).click();
-			xpath_GenericMethod_Click(login_popup_close_xpath);
-	    }catch(Exception e) {
-	    	System.out.println(e.getMessage());
-	    }
-		try {
-		//driver.findElement(By.xpath(logout_icon_xpath)).click();
-			xpath_GenericMethod_Click(logout_icon_xpath);
-			 //waitFor(3);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-	    }
-	}
-	
-	public void clickOnLogoutButton() {
+	public void clickOnDownArrow() throws Exception {
 		
 		  try { //driver.findElement(By.xpath(login_popup_close_xpath)).click();
 		  xpath_GenericMethod_Click(login_popup_close_xpath); }catch(Exception e) {
 		  System.out.println(e.getMessage()); }
 		 
-		try {
-		//driver.findElement(By.xpath(logout_icon_xpath)).click();
-			
-			xpath_GenericMethod_Click(logout_icon_xpath);
-			 waitFor(3);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-	    }
+		
+		  try { //driver.findElement(By.xpath(logout_icon_xpath)).click();
+		  xpath_GenericMethod_Click(logout_icon_xpath); //waitFor(3); 
+		  }catch(Exception e) { System.out.println(e.getMessage()); }
+		 
+		
+	}
+	
+	public void clickOnLogoutButton() throws Exception {
+		/*
+		 * try { //driver.findElement(By.xpath(login_popup_close_xpath)).click();
+		 * xpath_GenericMethod_Click(login_popup_close_xpath); }catch(Exception e) {
+		 * System.out.println(e.getMessage()); }
+		 */
+		 
+		/*
+		 * try { //driver.findElement(By.xpath(logout_icon_xpath)).click();
+		 * 
+		 * xpath_GenericMethod_Click(logout_icon_xpath); waitFor(3); }catch(Exception e)
+		 * { System.out.println(e.getMessage()); }
+		 */
+		driver.switchTo().defaultContent();
+		xpath_GenericMethod_Click(logout_icon_xpath);
 	}
 	public void clickOnLogoutLink() {
         try {
