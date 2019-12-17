@@ -339,7 +339,7 @@ try {
 		  +"are same");
 		  System.out.println("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
 		  +"are same");
-		  Reporter.log("Expected CP :"+" "+cp+"Actual CP :"+" "+actualcp+" "
+		  Reporter.log("Expected CP :"+" "+cp+" "+"Actual CP :"+" "+actualcp+" "
 				  +"are same");
 		  }else { 
 			  System.out.println("CFS or CP data is invalid"); 
