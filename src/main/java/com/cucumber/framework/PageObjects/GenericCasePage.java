@@ -63,6 +63,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		 * try { xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
 		 * }catch(Exception e) { System.out.println(e.getMessage()); }
 		 */
+		//waitFor(1);
 		driver.switchTo().defaultContent();
 		//PegaGadget2Ifr
 		
@@ -205,6 +206,12 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		
 	}
 	public void sendAdvanceSearchCustomerNumber(String customernumber) throws Exception {
+		waitFor(3);
+		try {
+			xpath_GenericMethod_Sendkeys(xpath_advacancecustomername_textbox,"");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		xpath_GenericMethod_Sendkeys(xpath_advancecustomernumber_textbox, customernumber);
 	}
 	

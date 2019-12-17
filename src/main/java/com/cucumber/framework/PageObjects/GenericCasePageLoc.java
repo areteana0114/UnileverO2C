@@ -35,6 +35,7 @@ public interface GenericCasePageLoc {
     String xpath_advancecustomersearch_icon_hover="//li[@title='Customer Search']";
     String xpath_advancecustomersearch_icon_link="//span[@class='menu-item-title' and text()='Customer Search']";
     String xpath_advancecustomernumber_textbox="//input[@id='45bb12ca' and @title='Search case ID']";
+    String xpath_advacancecustomername_textbox="//input[@title='Search customer name']";
     String xpath_advancecustomersearch_button="//button[@title='Search']";
     String xpath_advancetwodots_button="(//*[contains(@id,'$PD_CustomerSearch')]/td[13])[1]";
     String xpath_advancestartresearch_btn="//ul[starts-with(@id,'pyNavigation')]/li[2]/a";
