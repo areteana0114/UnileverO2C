@@ -46,6 +46,8 @@ Feature: Generic Case Creation
   #| ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded   | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
   #| ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default          | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
   #| Mohan.Akula@Areteanstech.com         | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
+  
+  
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC2
   Scenario Outline: Create a Generic case manually from Advance search customer using Start Research.
@@ -530,22 +532,6 @@ Feature: Generic Case Creation
       | Username1                           | Password1 | Value     | CustomerNumber | ServiceCase  | type1            | type2            | type3          | SalesOrg                  | DistChannel           | UpdateStatus1      | Username2                              | Password2 | NewAssignee                            |
       | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | abhinash.kotikalapudi@Areteanstech.com |
 
-  #Author U.Ramakrishna
-  @AlternateCode
-  Scenario Outline: Generic case Routing Verify the case is routed to correct New Assignee worklist.
-    Given Open the browser and navigate to the url
-    When I enter username as "<Username2>"
-    And I enter password as "<Password2>"
-    And I click on Login button
-    Then Login should be successful
-    And Click on case id in My Cases tab
-    When I click on Logout button
-    And I click on Logout
-    Then Logout should be successful
-
-    Examples: 
-      | Username2                              | Password2 |
-      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC12
@@ -588,7 +574,7 @@ Feature: Generic Case Creation
     And I click on Login button
     Then Login should be successful
     And Click on My Workbasket tab in Home page
-    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
+    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
@@ -600,20 +586,56 @@ Feature: Generic Case Creation
       | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Entry      | IDOC Blocked    | Idoc_Other | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:OrderEntryWB            |
       | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Validation | Logistics       | Default    | 1300-MSO Unilever Germany | 20-Sales Transactions | Pending-InProgress | ramakrishna.uppara@Areteanstech.com | Rules@123 | UnileverO2C:Order Validation Basket |
 
+      
   #Author U.Ramakrishna
-  @AlternateCode
-  Scenario Outline: Generic case Routing Verify the case is routed to correct workbasket.
+  @Smoke_GC_Kato @GC_Kato_TC13
+  Scenario Outline: Create a Generic case manually from start search customer using Start research.
     Given Open the browser and navigate to the url
-    When I enter username as "<Username1>"
-    And I enter password as "<Password1>"
+    When I enter username as "<Username>"
+    And I enter password as "<Password>"
     And I click on Login button
     Then Login should be successful
-    And Click on My Workbasket tab in Home page
-    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id "<CaseId>"
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Verify the CFS and CP using "<ExpectedCFS>" and "<ExpectedCP>" in generic case
+    And Click on Save button
+    Then Verify the Generic case is created
+    And Click on Edit button
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    And Select status as "<UpdateStatus>"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
+    And Verify the remarks updated under Case Status Remarks tab "<UpdateStatus>"
+    And Click on Follow button
+    And Click on Home tab
+    And Click on Followed Cases tab
+    And Click on Filter Icon on CaseID column
+    And Enter Case id into the case text textbox
+    And Click on Apply button
+    And Verify the case id 
     When I click on Logout button
     And I click on Logout
     Then Logout should be successful
 
     Examples: 
-      | Username1                            | Password1 | WorkBasket                         | CaseId  |
-      | manikumar.kosireddi@Areteanstech.com | Rules@123 | UnileverO2C:Process control basket | GC-3935 |
+      | Username                            | Password  | Value     | CustomerNumber | ServiceCase  | type1            | type2                 | type3   | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       |
+      # | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000543850 | Generic Case | Order Entry      | Additional Order      | Default          | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy            | Anderson Foister | Resolved-Completed |
+      | ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn |
+
+  #| ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims       | Return           | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-InProgress |
+  #| ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded   | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
+  #| ramakrishna.uppara@Areteanstech.com | Rules@123 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default          | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
+  

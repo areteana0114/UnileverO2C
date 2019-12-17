@@ -139,6 +139,33 @@ public class GenericCaseTest {
 	public void click_on_Follow_button() throws Exception {
 		genericcasepage.clickOnFollowButton();
 	}
+	
+	@Then("Click on Home tab")
+	public void click_on_home_tab() throws Exception {
+		genericcasepage.clickOnHomeTab();
+	}
+	
+	@Then("Click on Followed Cases tab")
+	public void Click_on_followed_cases_tab() throws Exception {
+		genericcasepage.clickOnFollowCasesTab();
+	}
+	
+	@Then("Click on Filter Icon on CaseID column")
+	public void click_on_filter_icon_on_caseid_column() throws Exception {
+		genericcasepage.clickOnFilterIconOnCaseIDColumn();
+	}
+	@Then("Enter Case id into the case text textbox")
+	public void enter_case_id_into_the_case_text_textbox() throws Exception {
+		genericcasepage.enterCaseIDIntoTextBox();
+	}
+	@Then("Click on Apply button")
+	public void click_on_apply_button() throws Exception {
+		genericcasepage.clickOnApplyButton();
+	}
+	@Then("Verify the case id")
+	public void verify_the_case_id() throws Exception {
+		genericcasepage.verifyCaseId();
+	}
 
 	/* Advance search Generic Case Creation */
 	
@@ -314,9 +341,9 @@ public class GenericCaseTest {
 		genericcasepage.sendGenericCaseObject(genericcasepage);
 		genericcasepage.clickOnWBTab();
 	}
-	@Then("Select workbasket {string} from view Queue for dropdown and click on case id {string}")
-	public void select_workbasket_from_view_queue_for_dropdown_and_click_on_case_id(String workbasketname,String caseid) throws Exception {
+	@Then("Select workbasket {string} from view Queue for dropdown and click on case id")
+	public void select_workbasket_from_view_queue_for_dropdown_and_click_on_case_id(String workbasketname) throws Exception {
 		genericcasepage.clickOnViewQueueForDropdown(workbasketname);
-		genericcasepage.clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab(caseid);
+		genericcasepage.clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab();
 	}
 }

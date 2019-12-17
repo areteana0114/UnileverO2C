@@ -163,6 +163,25 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		xpath_GenericMethod_Click(xpath_follow_button);
 	}
 	
+	public void clickOnHomeTab() throws Exception {
+		xpath_GenericMethod_Click(xpath_home_tab);
+	}
+	public void clickOnFollowCasesTab() throws Exception {
+		xpath_GenericMethod_Click(xpath_followedcases_header);
+	}
+	public  void clickOnFilterIconOnCaseIDColumn() throws Exception {
+		xpath_GenericMethod_Click(xpath_filtercaseid_followedcase);
+	}
+	public void enterCaseIDIntoTextBox() throws Exception {
+		String stored_caseid=getCaseIdPreference();
+		xpath_GenericMethod_Sendkeys(xpath_searchtextinfiltercaseid, stored_caseid);
+	}
+	public void clickOnApplyButton() throws Exception {
+		xpath_GenericMethod_Click(xpath_applyinfiltercaseid_btn);
+	}
+	public void verifyCaseId() throws Exception {
+		clickOnCaseIDFromFollowedCases();
+	}
 	public void clickOnCustomerSearchIcon() throws Exception {
 		try {
 			waitFor(3);
@@ -480,7 +499,7 @@ public void clickOnViewQueueForDropdown(String workbasketname) throws Exception 
 	xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_viewqueuefor_dd,workbasketname);
 }
 
-public void clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab(String caseid) throws Exception {
+public void clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab() throws Exception {
 	String stored_caseid=getCaseIdPreference();
 	System.out.println("Stored Case id is: "+stored_caseid);
 	for(int i=1;i<=20;i++) {		
@@ -489,7 +508,12 @@ public void clickOnCaseIdLinkInMyWB_ViewQueueForResultsTab(String caseid) throws
 	}
 }
 
-
+public void clickOnCaseIDFromFollowedCases() throws Exception {
+	String stored_caseid=getCaseIdPreference();
+	System.out.println("Stored Case id is: "+stored_caseid);	
+	xpath_GenericMethod_ClickWBResultsRow(stored_caseid, xpathstart_MyFollowed_caseid , xpathend_MyFollowed_caseid, 2);
+	
+}
 
 
 

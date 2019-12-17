@@ -78,6 +78,8 @@ public interface GenericCasePageLoc {
     String xpath_assign_to_workbasket_link="//span[text()='Assign To Work Basket']";
     String xpathstart_MyWB_caseid = "//tbody/tr[@id='$PpgRepPgSubSectionCPMMyWorkBasketListBBB$ppxResults$l";
     String xpathend_MyWB_caseid= "']/td[1]"; 
+    String xpathstart_MyFollowed_caseid = "//table[@pl_prop='D_pxFavorites.pxResults']/tbody/tr[";
+    String xpathend_MyFollowed_caseid="]/td[2]";
     String xpathstart_MyWL_caseid = "//tbody/tr[@id='$PpgRepPgSubSectionpyUserWorkListBBB$ppxResults$l";
     String xpathend_MyWL_caseid= "']/td[1]";  
     String xpath_previousassigneelist_dd="//select[@id='1bb11c02']";
@@ -87,4 +89,9 @@ public interface GenericCasePageLoc {
 	/* Home page xpaths */
     String xpath_workbasket_header="//h3[contains(@id,'headerlabel') and text()='My Workbasket']";
     String xpath_viewqueuefor_dd="//select[@id='126b0ac6']";
+    String xpath_followedcases_header="//h3[contains(@id,'headerlabel') and text()='Followed Cases']";
+    String xpath_home_tab="//span[text()='Home']";
+    String xpath_filtercaseid_followedcase="//table[@pl_prop='D_pxFavorites.pxResults']/tbody/tr/th[2]/div/span/a[@id='pui_filter']";
+    String xpath_searchtextinfiltercaseid="//input[@id='a7d1d932']";
+    String xpath_applyinfiltercaseid_btn="//button[text()='Apply']";
 }
