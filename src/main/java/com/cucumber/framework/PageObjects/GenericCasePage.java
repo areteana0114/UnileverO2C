@@ -546,6 +546,7 @@ public void clickOnWBTab() throws Exception {
 
 public void clickOnViewQueueForDropdown(String workbasketname) throws Exception {
 	waitFor(1);
+	Reporter.log("WorkBasket name is: "+workbasketname);
 	xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_viewqueuefor_dd,workbasketname);
 }
 
