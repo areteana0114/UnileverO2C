@@ -521,7 +521,7 @@ Feature: Generic Case Creation
 
     Examples: 
       | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             |
-      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | Mohan.Akula@Areteanstech.com |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC11
