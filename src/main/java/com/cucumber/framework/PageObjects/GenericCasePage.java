@@ -79,6 +79,27 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
         xpath_GenericMethod_Click(xpath_addtask_btn);
 		 }
 	
+	public void hoverOnAddtaskBtnInAdvanceSearch() throws Exception {
+		/*
+		 * try { xpath_GenericMethod_HoverOnDemoScreenPops(xpath_Addtask_btn1);
+		 * }catch(Exception e) { System.out.println(e.getMessage()); }
+		 */
+		//waitFor(1);
+		driver.switchTo().defaultContent();
+		//PegaGadget2Ifr
+		
+		waitFor(1);
+		driver.switchTo().frame("PegaGadget1Ifr");
+		waitFor(1);
+		WebElement ele=driver.findElement(By.xpath(xpath_Addtask_btn1));
+        waitForElement(ele, 1);
+        Actions action=new Actions(driver);
+        action.moveToElement(ele).build().perform();
+		//xpath_GenericMethod_Click(xpath_addtasks_btn);
+        waitFor(1);
+        xpath_GenericMethod_Click(xpath_addtask_btn);
+		 }
+	
 	public void clickOnAddTaskbtn() throws Exception {
 		//waitFor(2);
 		xpath_GenericMethod_Click(xpath_addtask_btn);
@@ -387,6 +408,15 @@ try {
 			  }
 		 
 		
+	}
+	
+	public void verifyUpdatedEmailDestinationFieldInGeneralTab(String expectedemaildestination) throws Exception {
+		waitFor(2);
+		System.out.println("In Verify Email Destination Method");
+		String actualemaildestinationvalue=xpath_Genericmethod_getElementText(xpath_emaildestination);
+		Reporter.log("Actual Email Destination Field Value is: "+actualemaildestinationvalue);
+		boolean emaildestinationstatus=xpath_Genericmethod_VerifyTextEquals(xpath_emaildestination, expectedemaildestination);
+		Assert.assertTrue(emaildestinationstatus,"Status of the case is not equal");
 	}
 	
 	public void verifyUpdatedCaseStatus(String expectedupdatedcasestatus) throws Exception {

@@ -58,6 +58,11 @@ public class GenericCaseTest {
 		
 	}
 
+	@When("Hover On Add Task button Pops in Advance Search")
+	public void hover_on_add_task_button_pops_in_advance_Search() throws Exception {
+		genericcasepage.hoverOnAddtaskBtnInAdvanceSearch();
+		
+	}
 	
 	@Given("Click on Add Task button in OtoC")
 	public void click_on_Add_Task_button_in_OtoC() throws Exception {
@@ -223,6 +228,10 @@ public class GenericCaseTest {
 		genericcasepage.verifyCFSAndCP(cfs, cp);
 	}
 
+	@Given("Verify the Email Destination field in General Data tab is same as expected {string}")
+	public void verify_the_email_destination_field_in_general_data_tab_is_same_as_expected(String expectedemaildestination) throws Exception {
+		genericcasepage.verifyUpdatedEmailDestinationFieldInGeneralTab(expectedemaildestination);
+	}
 	
 	@Given("Verify the updated case status as {string}")
 	public void verify_the_updated_case_status_as(String expectedupdatestatus) throws Exception {

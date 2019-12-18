@@ -31,6 +31,7 @@ public interface GenericCasePageLoc {
     String endxpath_casestatusremarks_table="]/td[2]";
     String xpath_updatestatus_submit_btn="//button[@id='ModalButtonSubmit' and text()='  Submit ']";
     String xpath_follow_button="//button[@name='pyActionLabelDisplaySection_pyWorkPage_11' and text()='Follow']";
+    String xpath_emaildestination="//span[@data-test-id='20190905191034056352646']";
 	/* Advance customer search xpaths */
     String xpath_advancecustomersearch_icon_hover="//li[@title='Customer Search']";
     String xpath_advancecustomersearch_icon_link="//span[@class='menu-item-title' and text()='Customer Search']";
