@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import com.cucumber.framework.CS.CustomerServ;
 import com.cucumber.framework.GeneralHelperSel.SeleniumFunc;
@@ -69,10 +70,21 @@ public class LoginPage extends CustomerServ implements LoginPageLoc {
 
 	}
 
-	public void verifyMsg() {
+	public void verifyMsg() throws Exception {
         System.out.println("In verify login successful");
-		Assert.assertTrue(driver.findElement(By.xpath(verify_msg_xpath)).getText().equalsIgnoreCase("O2CKatowice"),
+        String verifyTextLogin=xpath_Genericmethod_getElementText(verify_msg_xpath);
+        if(verifyTextLogin.equalsIgnoreCase("O2CKatowice")) {	
+		Assert.assertTrue(verifyTextLogin.equalsIgnoreCase("O2CKatowice"),
 				"Login is not successful");
+		Reporter.log("Login is Successful for the region: "+verifyTextLogin);
+        }else if(verifyTextLogin.equalsIgnoreCase("UnileverO2CNorthAmerica")) {
+        	Assert.assertTrue(verifyTextLogin.equalsIgnoreCase("UnileverO2CNorthAmerica"),
+    				"Login is not successful");
+        	Reporter.log("Login is Successful for the region: "+verifyTextLogin);
+        }else {
+        	Assert.assertTrue(false);
+        	
+        }
 
 	}
 
