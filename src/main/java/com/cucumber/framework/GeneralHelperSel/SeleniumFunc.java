@@ -1460,12 +1460,19 @@ public class SeleniumFunc implements SeleniumFuncLoc {
         for (int i = j; i <= 5; i++) {
                WebElement actualtext = driver.findElement(By.xpath(xpathstart + i + xpathend));
                try {
-                     if (actualtext.getText().equalsIgnoreCase(expectedtext)) {
-                            scrollToElement(actualtext);
-                            Reporter.log("Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
-                            
-                           // break;
-                     }
+            	   Reporter.log("Before Assertion: Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
+            	   Assert.assertTrue(actualtext.getText().equalsIgnoreCase(expectedtext),"Actual and Expected are not same");
+            	   Reporter.log("After Assertion: Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
+				/*
+				 * if (actualtext.getText().equalsIgnoreCase(expectedtext)) {
+				 * scrollToElement(actualtext);
+				 * Reporter.log("Actual Text is: "+actualtext.getText()+" Expected Text is: "
+				 * +expectedtext);
+				 * 
+				 * // break; }else {
+				 * Reporter.log("Actual Text is: "+actualtext.getText()+" Expected Text is: "
+				 * +expectedtext); }
+				 */
                } catch (Exception e) {
             	   Reporter.log("Expected text not Found: "+expectedtext);
                      System.out.println("No such element" + e.getMessage());
@@ -1473,6 +1480,8 @@ public class SeleniumFunc implements SeleniumFuncLoc {
         }
         // driver.switchTo().defaultContent();
  }
+
+	
 
 	public static void waitForElement(WebElement element, int timeunitForsec) {
 		WebDriverWait wait = new WebDriverWait(driver, timeunitForsec);

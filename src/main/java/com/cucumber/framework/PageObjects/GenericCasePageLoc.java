@@ -96,4 +96,14 @@ public interface GenericCasePageLoc {
     String xpath_filtercaseid_followedcase="//table[@pl_prop='D_pxFavorites.pxResults']/tbody/tr/th[2]/div/span/a[@id='pui_filter']";
     String xpath_searchtextinfiltercaseid="//input[@id='a7d1d932']";
     String xpath_applyinfiltercaseid_btn="//button[text()='Apply']";
+	/* Case log xpaths */
+    String caselog_xpathstart="//table[@pl_prop='D_CaseChangeLog.pxResults']/tbody/tr[";
+    String caselog_xpathmid="]/td[";
+    String caselog_xpathend="]";
+    
+    String xpathstart_caselog="//table[@pl_prop='D_CaseChangeLog.pxResults']/tbody/tr[";
+    String xpathend_caselog="]/td[3]";
+    String xpath_changecaselog_tab="//h3[contains(@id,'headerlabel') and text()='Case Change Log']";
+    
+    
 }

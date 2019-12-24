@@ -243,6 +243,10 @@ public class GenericCaseTest {
 		genericcasepage.verifyCaseStatusRemarks(expectedcasestatusremarks);
 	}
 	
+	@Given("Verify the case status old value {string} and new value {string} and case responsible old value {string} and new value {string} under Case Change Log tab based on work status {string} and case responsible old value {string}")
+	public void verify_the_case_status_old_value_and_new_value_and_case_responsible_old_value_and_new_value_under_Case_Change_Log_tab_based_on_work_status_and_case_responsible_old_value(String expectedstatus_oldvalue, String expectedstatus_newvalue,String expectedcaseresponsible_oldvalue, String expectedcaseresponsible_newvalue,String actiontypeworkstatus,String actiontypecaseresponsible ) throws Exception {
+		genericcasepage.verifyCaseStatusAndCaseResponsible(expectedstatus_oldvalue,expectedstatus_newvalue,expectedcaseresponsible_oldvalue,expectedcaseresponsible_newvalue,actiontypeworkstatus,actiontypecaseresponsible);
+		}
 	
 	@Given("Click on SendMail link")
 	public void click_on_SendMail_link() throws Exception {
@@ -317,7 +321,15 @@ public class GenericCaseTest {
 		genericcasepage.sendGenericCaseObject(genericcasepage);
 		genericcasepage.closeCaseIdTab();	
 		genericcasepage.clickOnCaseIdLinkInMyCasesTab();
+		
 	}
+	
+	@Then("Click on Case Change Log tab")
+	public void click_on_case_change_log_tab() throws Exception {
+		genericcasepage.clickOnCaseChangeLogTab();
+		
+	}
+	
 	@Then("Click on Assign To Previous Assignee")
 	public void click_on_assign_to_previous_assignee() throws Exception {
 		genericcasepage.clickOnAssignToPreviousAssigneeButton();
