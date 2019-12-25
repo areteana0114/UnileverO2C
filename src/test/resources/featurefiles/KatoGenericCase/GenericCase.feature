@@ -523,7 +523,7 @@ Feature: Generic Case KATO
 
     Examples: 
       | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             |
-      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com |
+      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC11
@@ -679,6 +679,7 @@ Feature: Generic Case KATO
   #| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims       | Return         | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-InProgress |
   #| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
   #| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
+  #Case Change Log scripts*****************************************************************************************************************
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC15
   Scenario Outline: Verfy case change log using Assign To CFS option.
@@ -729,5 +730,179 @@ Feature: Generic Case KATO
     Then Logout should be successful
 
     Examples: 
-      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2                 | type3   | SalesOrg                  | DistChannel           | Division           | UpdateStatus       | Username2                              | Password2 | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1    | expectedcaseresponsible_newvalue1      |
-      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Work status          | Case Responsible         | New                      | Pending-InProgress       | mohan.akula@Areteanstech.com | abhinash.kotikalapudi@Areteanstech.com |
+      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2                 | type3   | SalesOrg                  | DistChannel           | Division           | UpdateStatus       | Username2                              | Password2 | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1      |
+      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Work status          | Case Responsible          | New                      | Pending-InProgress       | mohan.akula@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com |
+
+  #Author U.Ramakrishna
+  @Smoke_GC_Kato @GC_Kato_TC16
+  Scenario Outline: Verify case change log using Assign to Workbasket Option.
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username1>"
+    And I enter password as "<Password1>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Click on Save button
+    Then Verify the Generic case is created
+    And Click on Edit button
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    And Select status as "<UpdateStatus1>"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus1>"
+    And Click on Edit button
+    And Click on Assign To button
+    And Click on Assign To Workbasket link
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+    When I enter username as "<Username2>"
+    And I enter password as "<Password2>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on My Workbasket tab in Home page
+    And Select workbasket "<WorkBasket>" from view Queue for dropdown and click on case id
+    And Click on Case Change Log tab
+    And Verify the case status old value "<expectedstatus_oldvalue1>" and new value "<expectedstatus_newvalue1>" and case responsible old value "<expectedcaseresponsible_oldvalue1>" and new value "<expectedcaseresponsible_newvalue1>" under Case Change Log tab based on work status "<Actiontypeworkstatus>" and case responsible old value "<Actiontypecaseresponsible>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username1                              | Password1 | Value     | CustomerNumber | ServiceCase  | type1            | type2         | type3   | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                    | Password2   | WorkBasket                         | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1      | expectedcaseresponsible_newvalue1  |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Customer Billing | Output Issues | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | mohan.akula@Areteanstech.com | Rules@12345 | UnileverO2C:Process control basket | Work status          | Case Responsible          | New                      | Pending-InProgress       | abhinash.kotikalapudi@Areteanstech.com | UnileverO2C:Process control basket |
+
+  #Author U.Ramakrishna
+  @Smoke_GC_Kato @GC_Kato_TC17
+  Scenario Outline: Generic case Routing to New Assignee using Assign to New Assignee Option.
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username1>"
+    And I enter password as "<Password1>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Click on Save button
+    Then Verify the Generic case is created
+    And Click on Edit button
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    And Select status as "<UpdateStatus1>"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus1>"
+    And Click on Edit button
+    And Click on Assign To button
+    And Click on Assign To New Assignee
+    And Select the New Assignee "<NewAssignee>" and click on submit
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+    When I enter username as "<Username2>"
+    And I enter password as "<Password2>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on case id in My Cases tab
+    And Click on Case Change Log tab
+    And Verify the case status old value "<expectedstatus_oldvalue1>" and new value "<expectedstatus_newvalue1>" and case responsible old value "<expectedcaseresponsible_oldvalue1>" and new value "<expectedcaseresponsible_newvalue1>" under Case Change Log tab based on work status "<Actiontypeworkstatus>" and case responsible old value "<Actiontypecaseresponsible>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2            | type3          | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | NewAssignee                            | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1      |
+      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | abhinash.kotikalapudi@Areteanstech.com | Work status          | Case Responsible          | New                      | Pending-InProgress       | mohan.akula@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com |
+
+  #Author U.Ramakrishna
+  @Smoke_GC_Kato @GC_Kato_TC18
+  Scenario Outline: Generic case Routing to Previous Assignee using Assign to Previous Assignee Option.
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username1>"
+    And I enter password as "<Password1>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Click on Save button
+    Then Verify the Generic case is created
+    And Click on Edit button
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    And Select status as "<UpdateStatus1>"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus1>"
+    And Click on Edit button
+    And Click on Assign To button
+    And Click on Assign To CFS button
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+    When I enter username as "<Username2>"
+    And I enter password as "<Password2>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on case id in My Cases tab
+    And Click on Edit button after launching case from Mycases or MyWorkBasket tab
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    Given Select status as "<UpdateStatus2>" in the Create Generic Case"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus2>"
+    And Click on Edit button after launching case from Mycases or MyWorkBasket tab
+    And Click on Assign To button
+    And Click on Assign To Previous Assignee
+    And Select the previous Assignee "<PrevoiusAssignee>" and click on submit
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+    When I enter username as "<Username1>"
+    And I enter password as "<Password1>"
+    And I click on Login button
+    Then Login should be successful
+    And Click on case id in My Cases tab
+    And Click on Case Change Log tab
+    And Verify the case status old value "<expectedstatus_oldvalue1>" and new value "<expectedstatus_newvalue1>" and case responsible old value "<expectedcaseresponsible_oldvalue1>" and new value "<expectedcaseresponsible_newvalue1>" under Case Change Log tab based on work status "<Actiontypeworkstatus>" and case responsible old value "<Actiontypecaseresponsible>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1      |
+      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com | Work status          | Case Responsible          | Pending-InProgress                      | Pending-Response       | abhinash.kotikalapudi@Areteanstech.com      | mohan.akula@Areteanstech.com |
