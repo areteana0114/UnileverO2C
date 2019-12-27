@@ -106,6 +106,16 @@ public class GenericCaseTest {
 	}
 
 
+	@Then("Verify the SLA {string}")
+	public void verify_the_sla(String expectedsla) throws Exception {
+		genericcasepage.verifySLA(expectedsla);
+	}
+
+	@Then("Verify the Expected Resolution Time")
+	public void verify_the_expected_resolution_time() throws Exception {
+		genericcasepage.verifyExpectedResolutionTime();
+	}
+
 	@Then("Click on Edit button")
 	public void click_on_Edit_button() throws Exception {
 		
@@ -144,6 +154,12 @@ public class GenericCaseTest {
 	@Then("Click on Follow button")
 	public void click_on_Follow_button() throws Exception {
 		genericcasepage.clickOnFollowButton();
+	}
+	
+
+	@Then("Click on Case Status Remarks tab")
+	public void click_on_case_status_remarks_tab() throws Exception {
+		genericcasepage.clickOnCaseStatusRemarksTab();
 	}
 	
 	@Then("Click on Home tab")

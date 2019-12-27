@@ -38,12 +38,12 @@ Feature: Generic Case KATO
     Then Logout should be successful
 
     Examples: 
-      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       |
-      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-InProgress |
+      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2                 | type3   | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       |
+      # | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-InProgress |
+      # | SivaNA.CFS                   | pEGA@1234   | Customers |     0030004423 | Generic Case | Order Entry | RDD              | RDD Change - Compliance | 0001-                     | 10-                   | 40-                | abhinash kotikalapudi | Manikumar Kosireddi | Resolved-Completed |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims       | Return  | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Completed |
 
-  # | SivaNA.CFS                   | pEGA@1234   | Customers |     0030004423 | Generic Case | Order Entry | RDD              | RDD Change - Compliance | 0001-                     | 10-                   | 40-                | abhinash kotikalapudi | Manikumar Kosireddi | Resolved-Completed |
-  #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Resolved-Withdrawn |
-  #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims       | Return         | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-InProgress |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000431023 | Generic Case | Order Validation | Order Modification - Item Level | 1300-MSO Unilever Germany | 22-OOH                | New                |
@@ -659,6 +659,7 @@ Feature: Generic Case KATO
     And Click on Submit button in update status pop up
     And Click on Save button
     And Verify the updated case status as "<UpdateStatus>"
+    And Click on Case Status Remarks tab
     And Verify the remarks updated under Case Status Remarks tab "<UpdateStatus>"
     And Click on Follow button
     And Click on Home tab
@@ -682,7 +683,7 @@ Feature: Generic Case KATO
   #Case Change Log scripts*****************************************************************************************************************
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC15
-  Scenario Outline: Verfy case change log using Assign To CFS option.
+  Scenario Outline: Generic case Routing to CFS and Verfy case change log using Assign To CFS option.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
     And I enter password as "<Password1>"
@@ -732,10 +733,12 @@ Feature: Generic Case KATO
     Examples: 
       | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2                 | type3   | SalesOrg                  | DistChannel           | Division           | UpdateStatus       | Username2                              | Password2 | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1      |
       | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Work status          | Case Responsible          | New                      | Pending-InProgress       | mohan.akula@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com |
+     # | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-Response   | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Work status          | Case Responsible          | New                      | Pending-Response         | mohan.akula@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com |
+     # | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | New                | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Work status          | Case Responsible          |                          | New                      | mohan.akula@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com |
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC16
-  Scenario Outline: Verify case change log using Assign to Workbasket Option.
+  Scenario Outline: Generic case Routing to Workbasket and Verify case change log using Assign to Workbasket Option.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
     And I enter password as "<Password1>"
@@ -787,7 +790,7 @@ Feature: Generic Case KATO
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC17
-  Scenario Outline: Generic case Routing to New Assignee using Assign to New Assignee Option.
+  Scenario Outline: Generic case Routing to New Assignee and Verify case change log using Assign to New Assignee Option.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
     And I enter password as "<Password1>"
@@ -839,7 +842,7 @@ Feature: Generic Case KATO
 
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC18
-  Scenario Outline: Generic case Routing to Previous Assignee using Assign to Previous Assignee Option.
+  Scenario Outline: Generic case Routing to Previous Assignee and Verify case change log using Assign to Previous Assignee Option.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
     And I enter password as "<Password1>"
@@ -904,5 +907,94 @@ Feature: Generic Case KATO
     Then Logout should be successful
 
     Examples: 
-      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1      |
-      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com | Work status          | Case Responsible          | Pending-InProgress                      | Pending-Response       | abhinash.kotikalapudi@Areteanstech.com      | mohan.akula@Areteanstech.com |
+      | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1      | expectedcaseresponsible_newvalue1 |
+      | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com | Work status          | Case Responsible          | Pending-InProgress       | Pending-Response         | abhinash.kotikalapudi@Areteanstech.com | mohan.akula@Areteanstech.com      |
+
+  @Smoke_GC_Kato @GC_Kato_TC19
+  Scenario Outline: Verify the case change log for statuses Resolved Completed and Resolved Withdrawn from To-Do List
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username>"
+    And I enter password as "<Password>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Verify the CFS and CP using "<ExpectedCFS>" and "<ExpectedCP>" in generic case
+    And Click on Save button
+    Then Verify the Generic case is created
+    And Click on Edit button
+    And Click on OtherActions button
+    And Click on UpdateStatus link
+    And Select status as "<UpdateStatus>"
+    And Click on Submit button in update status pop up
+    And Click on Save button
+    And Verify the updated case status as "<UpdateStatus>"
+    And Click on Case Status Remarks tab
+    And Verify the remarks updated under Case Status Remarks tab "<UpdateStatus>"
+    And Click on Follow button
+    And Click on Home tab
+    And Click on Followed Cases tab
+    And Click on Filter Icon on CaseID column
+    And Enter Case id into the case text textbox
+    And Click on Apply button
+    And Verify the case id
+    And Click on Case Change Log tab
+    And Verify the case status old value "<expectedstatus_oldvalue1>" and new value "<expectedstatus_newvalue1>" and case responsible old value "<expectedcaseresponsible_oldvalue1>" and new value "<expectedcaseresponsible_newvalue1>" under Case Change Log tab based on work status "<Actiontypeworkstatus>" and case responsible old value "<Actiontypecaseresponsible>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1 | expectedcaseresponsible_newvalue1 |
+      #| mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn | Work status          | Case Responsible          | New                      | Resolved-Withdrawn       | mohan.akula@Areteanstech.com      | mohan.akula@Areteanstech.com      |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000543850 | Generic Case | Order Entry | Additional Order | Default | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy  | Anderson Foister | Resolved-Completed | Work status          | Case Responsible          | New                      | Resolved-Completed       | abhinash.kotikalapudi@Areteanstech.com      | abhinash.kotikalapudi@Areteanstech.com      |
+      
+   
+   
+  @Smoke_GC_Kato @GC_Kato_TC20
+  Scenario Outline: Verify the SLA and Expected Resolution Date Time
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username>"
+    And I enter password as "<Password>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CustomerNumber>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CustomerNumber>" should be displayed
+    When Click on three dots button
+    And Click on start research button
+    And Hover On Add Task button Pops
+    And Click on Add Task button in OtoC
+    And Select the required "<ServiceCase>"
+    And Click on the Add Tasks button
+    And Select values from "<type1>" and "<type2>" and "<type3>" dropdown
+    And Click on Parties and Organization tab
+    And Select values from "<SalesOrg>" and "<DistChannel>" and "<Division>"
+    And Verify the CFS and CP using "<ExpectedCFS>" and "<ExpectedCP>" in generic case
+    And Click on Save button
+    Then Verify the Generic case is created
+    Then Verify the SLA "<ExpectedSLA>"
+    And Verify the Expected Resolution Time
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+     
+    Examples: 
+      | Username                     | Password    | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | ExpectedCFS           | ExpectedCP | UpdateStatus       | ExpectedSLA|
+      #| mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Cash Application | Deduction - Logistics | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Resolved-Withdrawn |
+     # | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000543850 | Generic Case | Cash Application | Deduction - Logistics | Default | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy  | Anderson Foister | Pending-InProgress |40 hrs and 0 mins |
+      | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000543850 | Generic Case | Order Entry | Manual Order Entry | Default | 1600-MSO Unilever Austria | 20-Sales Transactions | 10-Common Division | Alex Dummy  | Anderson Foister | Pending-InProgress |2 hrs and 0 mins |
+      
+   

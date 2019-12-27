@@ -1459,7 +1459,7 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 	public static void Generic_getText_TableResults_Row(String expectedtext, String xpathstart, String xpathend, int j) {
         for (int i = j; i <= 5; i++) {
                WebElement actualtext = driver.findElement(By.xpath(xpathstart + i + xpathend));
-               try {
+              // try {
             	   Reporter.log("Before Assertion: Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
             	   Assert.assertTrue(actualtext.getText().equalsIgnoreCase(expectedtext),"Actual and Expected are not same");
             	   Reporter.log("After Assertion: Actual Text is: "+actualtext.getText()+" Expected Text is: "+expectedtext);
@@ -1473,10 +1473,10 @@ public class SeleniumFunc implements SeleniumFuncLoc {
 				 * Reporter.log("Actual Text is: "+actualtext.getText()+" Expected Text is: "
 				 * +expectedtext); }
 				 */
-               } catch (Exception e) {
+            /*   } catch (Exception e) {
             	   Reporter.log("Expected text not Found: "+expectedtext);
                      System.out.println("No such element" + e.getMessage());
-               }
+               }*/
         }
         // driver.switchTo().defaultContent();
  }

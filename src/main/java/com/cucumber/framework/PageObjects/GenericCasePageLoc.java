@@ -104,6 +104,13 @@ public interface GenericCasePageLoc {
     String xpathstart_caselog="//table[@pl_prop='D_CaseChangeLog.pxResults']/tbody/tr[";
     String xpathend_caselog="]/td[3]";
     String xpath_changecaselog_tab="//h3[contains(@id,'headerlabel') and text()='Case Change Log']";
+    String xpath_casestatusremarks_tab="//h3[contains(@id,'headerlabel') and text()='Case Status Remarks']";
+    
+	/* SLA and Resolution Time xpaths */
+    String xpath_sla="//span[@data-test-id='2019060712155402251014']";
+    String xpath_createdon="(//span[@data-test-id='2019021417474507071394605'])[1]";
+    String xpath_resolutiontime="(//span[@data-test-id='2019021417474507071394605'])[3]";
+    String xpath_remainingsla="//div[@class='field-item dataValueRead']/span[@class='nowrap']";
     
     
 }
