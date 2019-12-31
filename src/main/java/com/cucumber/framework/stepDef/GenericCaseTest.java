@@ -139,6 +139,16 @@ public class GenericCaseTest {
 		genericcasepage.clickOnUpdateStatusLink();
 	}
 	
+	@Then("Click on Copy Case link")
+	public void click_on_copy_case_link() throws Exception {
+		genericcasepage.clickOnCopyCaseLink();
+		
+	}
+	@Then("Click on New tab opened")
+	public void click_on_new_tab_opened() throws Exception {
+		genericcasepage.clickOnNewTab();
+	}
+	
 	  @Then("Select status as {string}") public void select_status_as(String statusvalue) throws Exception {
 	  genericcasepage.selectUpdateStatusValueFromDropdown(statusvalue);
 	  

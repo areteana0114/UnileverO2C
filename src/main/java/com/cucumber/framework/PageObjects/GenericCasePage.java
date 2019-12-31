@@ -153,9 +153,10 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 
 	public void verifyGenericCaseCreated() throws Exception {
+		waitFor(3);
 		boolean caseid = xpath_Genericmethod_verifyElementPresent(xpath_genericcase_id);
 		String caseid_value = xpath_Genericmethod_getElementText(xpath_genericcase_id);
-		System.out.println(caseid_value);
+		System.out.println("Case Id Value is: "+caseid_value);
 		actualcaseid_value = caseid_value.substring(1, 8);
 		saveCaseIdPreference(actualcaseid_value);
 		System.out.println(actualcaseid_value);
@@ -321,6 +322,14 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 		xpath_GenericMethod_Click(xpath_updatestatus_link);
 	}
 
+	public void clickOnCopyCaseLink() throws Exception {
+		xpath_GenericMethod_Click(xpath_copycase_link);
+		waitFor(3);
+		
+	}
+	public void clickOnNewTab() throws Exception {
+		xpath_GenericMethod_Click(xpath_new_tab);
+	}
 	public void selectUpdateStatusValueFromDropdown(String statusvalue) throws Exception {
 		xpath_GenericMethod_selectFromDropdownUsingVisibleTextbyclickingOnDropdown(xpath_updatestatus_dd, statusvalue);
 		xpath_GenericMethod_Sendkeys(xpath_remarksinupdatestatus_textbox, statusvalue);

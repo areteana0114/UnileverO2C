@@ -24,6 +24,8 @@ public interface GenericCasePageLoc {
     String xpath_casedesc_label="//span[text()='Case Description']";
     String xpath_otheractions_btn="//button[@title='Other actions']";
     String xpath_updatestatus_link="//a/span[@class='menu-item-title-wrap']/span[text()='Update Status']";
+    String xpath_copycase_link="//ul/li[1]/a/span[@class='menu-item-title-wrap']/span[text()='Copy Case']";
+    String xpath_new_tab="//table[@id='RULE_KEY']/tbody/tr[1]/td[2]/span[text()='New']";
     String xpath_updatestatus_dd="//select[@id='c83ab417']"; 
     String xpath_remarksinupdatestatus_textbox="//textarea[@id='9b497c2a' and @data-test-id='20190822121749096547629']";
     String xpath_casestatusremarks_verify="//div[@data-layout-id='201911191542580632']/h3[contains(@id,'headerlabel') and text()='Case Status Remarks']";
