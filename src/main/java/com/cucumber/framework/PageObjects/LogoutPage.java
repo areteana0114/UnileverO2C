@@ -69,8 +69,10 @@ public class LogoutPage extends CustomerServ implements LogoutPageLoc  {
         } catch (Exception e1) {  
                e1.printStackTrace();
         }      
-        SeleniumFunc.robotClass();
-        waitFor(3);
+       // SeleniumFunc.robotClass();
+        waitFor(1);
+        driver.switchTo().alert().dismiss();
+        waitFor(2);
  }
 
 	
