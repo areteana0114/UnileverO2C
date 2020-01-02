@@ -816,8 +816,6 @@ Feature: Generic Case KATO
     And Click on Add Task button in OtoC
     And Select the required "<ServiceCase>"
     And Click on the Add Tasks button
-    And Select the required "<ServiceCase>"
-    And Click on the Add Tasks button
     And Verify the message case cannot be created "<Message>"
     When I click on Logout button
     And I click on Logout

@@ -127,7 +127,7 @@
 				<version>2.17</version>
 				<configuration>
 
-					<testFailureIgnore>true</testFailureIgnore>    <!-- Run from local Reports-Uncomment this if want to generate cucumber reports 
+					<!-- <testFailureIgnore>true</testFailureIgnore>  -->   <!-- Run from local Reports-Uncomment this if want to generate cucumber reports 
 						in local -->
 
 					<suiteXmlFiles>
@@ -135,14 +135,14 @@
 							<suiteXmlFile>gridparalleltestng.xml</suiteXmlFile> <suiteXmlFile>${suiteXml}</suiteXmlFile> 
 							<suiteXmlFile>src/test/java/com/cucumber/framework/testng/testNG.xml</suiteXmlFile> -->
 
-						<!-- <suiteXmlFile>${suiteXml}</suiteXmlFile> --> <!-- Run from jenkins -->
-						<suiteXmlFile>testNGSequential.xml</suiteXmlFile>    <!-- Run from local -->
+						<suiteXmlFile>${suiteXml}</suiteXmlFile> <!-- Run from jenkins -->
+						<!-- <suiteXmlFile>testNGSequential.xml</suiteXmlFile> -->    <!-- Run from local -->
 					</suiteXmlFiles>
-				<!-- 	<systemPropertyVariables> 
+					<systemPropertyVariables> 
 					<Browser>${browserName}</Browser> 
 					<URL>${url}</URL> 
-					</systemPropertyVariables>  --> <!-- System property part Runs from jenkins -->
-					<argLine>-Dcucumber.options="--tags @GC_Kato_TC29"</argLine>   <!-- Run from local for single scenario execution original syntax is -Dcucumber.options=" 
+					</systemPropertyVariables>  <!-- System property part Runs from jenkins -->
+					<!-- <argLine>-Dcucumber.options="-tags @Smoke_GC_Kato"</argLine> -->   <!-- Run from local for single scenario execution original syntax is -Dcucumber.options=" 
 						two hyphens tags @Test3,@Test1" -->
 				</configuration>
 			</plugin>
@@ -164,7 +164,7 @@
 							<cucumberOutput>${project.build.directory}/cucumber-report/cucumber.json</cucumberOutput>
 
 
-							<checkBuildResult>true</checkBuildResult>   <!-- Run from local to generate Reports-uncomment this only when to generate 
+							<!-- <checkBuildResult>true</checkBuildResult>  -->  <!-- Run from local to generate Reports-uncomment this only when to generate 
 								cucumber reports even they are failures making build as success -->
 							<!-- <buildNumber>1</buildNumber> -->
 						</configuration>
