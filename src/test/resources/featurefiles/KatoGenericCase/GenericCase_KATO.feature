@@ -1037,6 +1037,7 @@ Feature: Generic Case KATO
     And Verify the remarks updated under Case Status Remarks tab "<UpdateStatus>"
     And Click on Follow button
     And Click on Home tab
+    And Click on my work icon in Advance search screen
     And Click on Followed Cases tab
     And Click on Filter Icon on CaseID column
     And Enter Case id into the case text textbox

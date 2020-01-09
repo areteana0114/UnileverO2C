@@ -207,7 +207,10 @@ public class GenericCaseTest {
 		genericcasepage.sendGenericCaseObject(genericcasepage);
 		genericcasepage.clickOnCustomerSearchIcon();
 	}
-	
+	@Then("Click on my work icon in Advance search screen")
+	public void click_on_my_work_icon_in_Advance_search_screen() throws Exception {
+		genericcasepage.clickOnMyWorkIcon();
+	}
 	@When("Enter {string} into customer number field in Advance search screen")
 	public void enter_into_customer_number_field_in_Advance_search_screen(String customernumber) throws Exception {
 		genericcasepage.sendAdvanceSearchCustomerNumber(customernumber);

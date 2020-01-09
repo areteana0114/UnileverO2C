@@ -36,6 +36,7 @@ public interface GenericCasePageLoc {
     String xpath_emaildestination="//span[@data-test-id='20190905191034056352646']";
 	/* Advance customer search xpaths */
     String xpath_advancecustomersearch_icon_hover="//li[@title='Customer Search']";
+    String xpath_mywork_icon_link="//span[@class='menu-item-title' and text()='My Work']";
     String xpath_advancecustomersearch_icon_link="//span[@class='menu-item-title' and text()='Customer Search']";
     String xpath_advancecustomernumber_textbox="//input[@id='45bb12ca' and @title='Search case ID']";
     String xpath_advacancecustomername_textbox="//input[@title='Search customer name']";

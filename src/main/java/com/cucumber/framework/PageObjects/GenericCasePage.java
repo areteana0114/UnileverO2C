@@ -181,125 +181,7 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 	
 	public void verifyExpectedResolutionTime() throws Exception {
-		String actualsla=xpath_Genericmethod_getElementText(xpath_sla);
-		Reporter.log("Actual SLA is: "+actualsla);
-		String createdon=xpath_Genericmethod_getElementText(xpath_createdon);
-		Reporter.log("Actual Created On Date is: "+createdon);
-		String resolutiontime=xpath_Genericmethod_getElementText(xpath_resolutiontime);
-		Reporter.log("Actual Resolution Time is: "+resolutiontime);
-		String actualremainingsla=xpath_Genericmethod_getElementText(xpath_remainingsla);
-		Reporter.log("Actual Remaining SLA is: "+actualremainingsla);
-		
-		
-		String created_on = createdon;
-		String resolution_time = resolutiontime;
-		//AM PM format-12 hour format
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
-		Date d1 = null;
-		Date d2 = null;
-		try {
-			d1 = format.parse(created_on);
-
-			d2 = format.parse(resolution_time);
-			System.out.println(d1);
-	        System.out.println(d2);
-			// in milliseconds
-			long diff = d2.getTime() - d1.getTime();
-
-			// long diffSeconds = diff / 1000 % 60;
-			long diffMinutes = diff / (60 * 1000) % 60;
-			long diffHours = diff / (60 * 60 * 1000) % 24;
-			long diffDays = diff / (24 * 60 * 60 * 1000);
-
-			System.out.print(diffDays + " days ");
-			System.out.print(diffHours + " hours ");
-			System.out.print(diffMinutes + " minutes from now");
-			// System.out.print(diffSeconds + " seconds.");
-
-			String expectedsla = diffDays + " days " + diffHours + " hours " + (diffMinutes-1)+ " minutes from now";
-			Reporter.log("Actual Remaining SLA is: " + actualremainingsla + " " + "Expected Remaining SLA is: " + expectedsla);
-			//Assert.assertEquals(actualremainingsla, expectedsla);
-			//Assert.assertTrue(expectedsla.contains(actualremainingsla));
-			//24 hours format conversion
-			SimpleDateFormat outputformat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-            //Changing the format of date and storing it in String
-            	String formatted_created_on = outputformat.format(d1);            	
-            	String formatted_resolution_time=outputformat.format(d2);
-               //Displaying the date
-              System.out.println("Formatted Created On: "+formatted_created_on);
-              Reporter.log("Formatted Created On: "+formatted_created_on);
-              System.out.println("Formatted Resolution Time: "+formatted_resolution_time);
-              Reporter.log("Formatted Resolution Time: "+formatted_resolution_time);
-              String updatedSLA=null;
-			try {
-				updatedSLA = actualsla.substring(0, 2);
-				System.out.println(Integer.parseInt(updatedSLA));
-			} catch (Exception e) {
-				updatedSLA = actualsla.substring(0, 1);
-				System.out.println(Integer.parseInt(updatedSLA));
-			}
-		
-			/*
-			 * String updatedCreatedOn=formatted_created_on.substring(0, 10);
-			 * System.out.println(updatedCreatedOn);
-			 */
-			String sla_hours=updatedSLA;
-			int slahours=Integer.parseInt(sla_hours);
-			String sla_mins="";
-			String created_on_hours=created_on.substring(11, 13);
-			int createdonhours=Integer.parseInt(created_on_hours);
-			String created_on_mins=created_on.substring(14, 16);
-			int createdonmins=Integer.parseInt(created_on_mins);
-			int totalhours=slahours+createdonhours;
-			int totalmins=createdonmins/60;
-			int total_time_in_hours=totalhours+totalmins;
-			System.out.println(total_time_in_hours);
-			Reporter.log(String.valueOf(total_time_in_hours));
-			
-            if(total_time_in_hours<=16) {
-              SimpleDateFormat outputformat1 = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-              Date d3=null;
-              //d3 = format.parse(updatedCreatedOn);
-              d3=outputformat1.parse(formatted_created_on);
-              Calendar calendar = Calendar.getInstance();
-              calendar.setTime(d3);
-              calendar.add(Calendar.HOUR_OF_DAY, Integer.parseInt(updatedSLA));
-              //Added Formatted Created On+SLA hours to get final datetime
-              System.out.println("Final Date Formatted SLA is: "+calendar.getTime());
-              Reporter.log("Final Date Formatted SLA is: "+calendar.getTime());
-              String date_formatted_sla=calendar.getTime().toString();
-              SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
-                      Locale.ENGLISH); 
-              Date d4=null;
-              d4 = sdf.parse(date_formatted_sla);
-              System.out.println("12 hours format is: "+format.format(d4));
-              Reporter.log("12 hours format is: "+format.format(d4));
-              }else if(total_time_in_hours>16 && total_time_in_hours<33) {
-            	  SimpleDateFormat outputformat1 = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-                  Date d3=null;
-                  //d3 = format.parse(updatedCreatedOn);
-                  d3=outputformat1.parse(formatted_created_on);
-                  Calendar calendar = Calendar.getInstance();
-                  calendar.setTime(d3);
-                  int sla=Integer.parseInt(updatedSLA)+15;
-                  calendar.add(Calendar.HOUR_OF_DAY, sla);
-                  System.out.println("Additional hours"+sla);
-                  //Added Formatted Created On+SLA hours to get final datetime
-                  System.out.println("Final Date Formatted SLA is: "+calendar.getTime());
-                  Reporter.log("Final Date Formatted SLA is: "+calendar.getTime());
-                  String date_formatted_sla=calendar.getTime().toString();
-                  SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
-                          Locale.ENGLISH); 
-                  Date d4=null;
-                  d4 = sdf.parse(date_formatted_sla);
-                  System.out.println("12 hours format is: "+format.format(d4));
-                  Reporter.log("12 hours format is: "+format.format(d4));  
-              }
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		System.out.println("In verifyExpectedResolutionTime");
 	}
 	public void clickOnEditButton() throws Exception {
 		xpath_GenericMethod_Click(xpath_edit_btn);
@@ -376,6 +258,16 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 			System.out.println(e.getMessage());
 		}
 		xpath_GenericMethod_Click(xpath_advancecustomersearch_icon_link);
+
+	}
+	public void clickOnMyWorkIcon() throws Exception {
+		try {
+			waitFor(3);
+			xpath_GenericMethod_HoverOnDemoScreenPops(xpath_advancecustomersearch_icon_hover);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		xpath_GenericMethod_Click(xpath_mywork_icon_link);
 
 	}
 
