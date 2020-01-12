@@ -2,7 +2,7 @@ Feature: Generic Case NA
 
   #*****************************************Customer Search*************************************************************************
   #Author U.Ramakrishna
-  @Smoke_GC_NA @GC_NA_TC1 @Demo
+  @Smoke_GC_NA @GC_NA_TC1 
   Scenario Outline: Create a Generic case manually from start search customer using Start research.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"

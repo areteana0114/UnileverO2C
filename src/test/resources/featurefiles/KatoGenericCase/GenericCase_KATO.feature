@@ -2,7 +2,7 @@ Feature: Generic Case KATO
 
   #*****************************************Customer Search*************************************************************************
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC1 @Demo
+  @Smoke_GC_Kato @GC_Kato_TC1
   Scenario Outline: Create a Generic case manually from start search customer using Start research.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -716,7 +716,7 @@ Feature: Generic Case KATO
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC16
+  @Smoke_GC_Kato @GC_Kato_TC16 @Demo
   Scenario Outline: Create a Generic case manually from Advance search customer using Create Generic Case.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -756,7 +756,7 @@ Feature: Generic Case KATO
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | Pending-Response   |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC17
+  @Smoke_GC_Kato @GC_Kato_TC17 @Demo
   Scenario Outline: Determine the CFS and CP for Generic case created manually using Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -799,7 +799,7 @@ Feature: Generic Case KATO
       | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0090096255 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 22-OOH                | 10-Common Division | Justyna Dummy         |                | Pending-InProgress | Yes     | No     |
 
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC18
+  @Smoke_GC_Kato @GC_Kato_TC18 @Demo
   Scenario Outline: Verify Message "Case can`t be created" when no CFS is assigned using Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -826,7 +826,7 @@ Feature: Generic Case KATO
       | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0090003099 | Generic Case | Case can`t be created. Customer does not have any CFS assigned, please contact the CFS administrator |
 
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC19
+  @Smoke_GC_Kato @GC_Kato_TC19 @Demo
   Scenario Outline: Email Outbound for Purpose Of Email is Pending Resonse through Generic case created manually using Advance Customer Search..
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -883,7 +883,7 @@ Feature: Generic Case KATO
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order fulfilment | Stock Management      | Quota Exceeded | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-Response | Pending Response | B2C Service provider |
   #| Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | Pending-Response | Pending Response | IT Support Team      |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC20
+  @Smoke_GC_Kato @GC_Kato_TC20 @Demo
   Scenario Outline: Email Outbound for Purpose Of Email is Information Only through Generic case created manually using Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -926,7 +926,7 @@ Feature: Generic Case KATO
       | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Information Only |
 
   #Author U.Ramakrishna
-  #@Smoke_GC_Kato @GC_Kato_TC21
+  #@Smoke_GC_Kato @GC_Kato_TC21 @Demo
   #Scenario Outline: Email Inbound for Generic case created manually using Advance Customer Search..
   #Given Open the browser and navigate to the url
   #When I enter username as "<Username>"
@@ -950,7 +950,7 @@ Feature: Generic Case KATO
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3808 | Pending-InProgress |
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3807 | Pending-Response   |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC22
+  @Smoke_GC_Kato @GC_Kato_TC22 @Demo
   Scenario Outline: Generic case Routing to Workbasket using Assign to Workbasket Option in Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
@@ -1003,7 +1003,7 @@ Feature: Generic Case KATO
   # | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Entry      | IDOC Blocked    | Idoc_Other | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | Mohan.Akula@Areteanstech.com | Rules@12345 | UnileverO2C:Order Entry Basket      |
   # | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000431023 | Generic Case | Order Validation | Logistics       | Default    | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | Mohan.Akula@Areteanstech.com | Rules@12345 | UnileverO2C:Order Validation Basket |
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC23
+  @Smoke_GC_Kato @GC_Kato_TC23 @Demo
   Scenario Outline: Create a Generic case manually and verify the To Do List in Advance Customer Search..
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
@@ -1057,7 +1057,7 @@ Feature: Generic Case KATO
   #| abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Customers |     0000088243 | Generic Case | Order Validation | Duplicate Order       | Default        | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar       | New                |
   #Case Change Log scripts*****************************************************************************************************************
   #Author U.Ramakrishna
-  @Smoke_GC_Kato @GC_Kato_TC24
+  @Smoke_GC_Kato @GC_Kato_TC24 @Demo
   Scenario Outline: Generic case Routing to CFS and Verfy case change log using Assign To CFS option in Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username1>"
@@ -1287,7 +1287,7 @@ Feature: Generic Case KATO
       | Username1                    | Password1   | Value     | CustomerNumber | ServiceCase  | type1            | type2           | type3  | SalesOrg                  | DistChannel           | Division           | UpdateStatus1      | Username2                              | Password2 | UpdateStatus2    | PrevoiusAssignee             | Actiontypeworkstatus | Actiontypecaseresponsible | expectedstatus_oldvalue1 | expectedstatus_newvalue1 | expectedcaseresponsible_oldvalue1      | expectedcaseresponsible_newvalue1 |
       | mohan.akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Claim Management | Logistic Claims | Return | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | Pending-InProgress | abhinash.kotikalapudi@Areteanstech.com | Pega1234$ | Pending-Response | mohan.akula@Areteanstech.com | Work status          | Case Responsible          | Pending-InProgress       | Pending-Response         | abhinash.kotikalapudi@Areteanstech.com | mohan.akula@Areteanstech.com      |
 
-  @Smoke_GC_Kato @GC_Kato_TC28
+  @Smoke_GC_Kato @GC_Kato_TC28 @Demo
   Scenario Outline: Verify the case change log for statuses Resolved Completed and Resolved Withdrawn from To-Do List in Advance Customer Search.
     Given Open the browser and navigate to the url
     When I enter username as "<Username>"
