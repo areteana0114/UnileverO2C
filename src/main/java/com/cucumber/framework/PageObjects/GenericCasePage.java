@@ -272,9 +272,11 @@ public class GenericCasePage extends CustomerServ implements GenericCasePageLoc 
 	}
 
 	public void sendAdvanceSearchCustomerNumber(String customernumber) throws Exception {
-		waitFor(3);
+		//waitFor(3);
 		try {
+			waitFor(2);
 			xpath_GenericMethod_Sendkeys(xpath_advacancecustomername_textbox, "");
+			waitFor(1);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
