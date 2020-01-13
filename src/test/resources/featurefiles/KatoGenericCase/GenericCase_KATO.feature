@@ -926,28 +926,30 @@ Feature: Generic Case KATO
       | Mohan.Akula@Areteanstech.com | Rules@12345 | Customers |     0000088243 | Generic Case | Order Entry | Additional Order | Default | 1300-MSO Unilever Germany | 20-Sales Transactions | 10-Common Division | abhinash kotikalapudi | Mani Kumar | New          | Information Only |
 
   #Author U.Ramakrishna
-  #@Smoke_GC_Kato @GC_Kato_TC21 @Demo
-  #Scenario Outline: Email Inbound for Generic case created manually using Advance Customer Search..
-  #Given Open the browser and navigate to the url
-  #When I enter username as "<Username>"
-  #And I enter password as "<Password>"
-  #And I click on Login button
-  #Then Login should be successful
-  #And Select "<Value>" from search results dropdown
-  #And Enter "<CaseId>" into search field
-  #When click on Search icon
-  #Then search results corresponding to "<CaseId>" should be displayed
-  #When Click on three dots button in search with case id
-  #And Click on start research button
-  #And Verify the updated case status as "<UpdateStatus>"
-  #And Click on Email Information tab
-  #And Verify the reply email attachment is present for "<CaseId>"
-  #When I click on Logout button
-  #And I click on Logout
-  #Then Logout should be successful
-  #Examples:
-  #| Username                             | Password  | Value | CaseId  | UpdateStatus       |
-  #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3808 | Pending-InProgress |
+  @Smoke_GC_Kato @GC_Kato_TC21 @Demo
+  Scenario Outline: Email Inbound for Generic case created manually using Advance Customer Search..
+    Given Open the browser and navigate to the url
+    When I enter username as "<Username>"
+    And I enter password as "<Password>"
+    And I click on Login button
+    Then Login should be successful
+    And Select "<Value>" from search results dropdown
+    And Enter "<CaseId>" into search field
+    When click on Search icon
+    Then search results corresponding to "<CaseId>" should be displayed
+    When Click on three dots button in search with case id
+    And Click on start research button
+    And Verify the updated case status as "<UpdateStatus>"
+    And Click on Email Information tab
+    And Verify the reply email attachment is present for "<CaseId>"
+    When I click on Logout button
+    And I click on Logout
+    Then Logout should be successful
+
+    Examples: 
+      | Username                     | Password    | Value | CaseId  | UpdateStatus       |
+      | Mohan.Akula@Areteanstech.com | Rules@12345 | Cases | GC-5856 | Pending-InProgress |
+
   #| manikumar.kosireddi@Areteanstech.com | Rules@123 | Cases | GC-3807 | Pending-Response   |
   #Author U.Ramakrishna
   @Smoke_GC_Kato @GC_Kato_TC22
