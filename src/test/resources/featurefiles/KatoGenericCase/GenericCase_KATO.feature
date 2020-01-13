@@ -936,7 +936,7 @@ Feature: Generic Case KATO
     And Select "<Value>" from search results dropdown
     And Enter "<CaseId>" into search field
     When click on Search icon
-    Then search results corresponding to "<CaseId>" should be displayed
+    #Then search results corresponding to "<CaseId>" should be displayed
     When Click on three dots button in search with case id
     And Click on start research button
     And Verify the updated case status as "<UpdateStatus>"
